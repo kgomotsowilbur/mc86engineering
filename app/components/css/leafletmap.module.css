@@ -1,0 +1,12 @@
+.mapWrapper :global(.leaflet-pane) {
+  z-index: 10 !important;
+}
+
+.mapWrapper :global(.leaflet-top),
+.mapWrapper :global(.leaflet-bottom) {
+  z-index: 20 !important;
+}
+
+.mapWrapper :global(.leaflet-control) {
+  z-index: 20 !important;
+}

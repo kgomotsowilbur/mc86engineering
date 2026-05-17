@@ -35,11 +35,11 @@ export default function Header() {
       <div className="mx-auto px-2 md:px-10 h-16 md:h-22 flex items-center justify-between gap-4">
         <Link href="/" className="flex items-center flex-shrink-0">
           <Image
-            src="https://res.cloudinary.com/dk7dsm0lc/image/upload/v1778948254/48a25c25-5863-4cd8-b5a7-cd876e5718b0_w8htoo.png"
+            src="https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779027428/logo_wstzeb.svg"
             alt="MC'86 logo"
             width={700}
             height={700}
-            className={`h-24 md:h-40 w-auto object-contain transition-all duration-300`}
+            className={`h-16 md:h-24 w-auto object-contain transition-all duration-300`}
             onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
           />
         </Link>

@@ -78,7 +78,7 @@ export default function Page() {
     <LenisProvider>
       <div
         style={{
-          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/v1778978926/8e0b0c63-6a9f-4e3f-b257-cf88bb170d32_owpkgz.png)`,
+          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778978926/8e0b0c63-6a9f-4e3f-b257-cf88bb170d32_owpkgz.png)`,
           backgroundAttachment: "fixed",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -89,7 +89,7 @@ export default function Page() {
         <AboutHero />
 
         {/* ── Who We Are ── */}
-        <section className="py-20 bg-background overflow-hidden">
+        <section className="py-20 bg-muted overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 items-center">
               {/* Image floats at a different speed than text */}

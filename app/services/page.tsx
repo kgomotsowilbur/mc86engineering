@@ -22,7 +22,7 @@ function ServicesHero() {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-18%"]);
 
   return (
-    <section ref={ref} className="relative min-h-[45vh] flex items-center justify-center overflow-hidden bg-primary">
+    <section ref={ref} className="relative min-h-[45vh] flex items-center justify-center overflow-hidden">
       <motion.div style={{ y: bgY }} className="absolute inset-0 w-full h-[130%] -top-[15%]">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/80" />
       </motion.div>
@@ -64,12 +64,20 @@ const services = [
 export default function Services() {
   return (
     <LenisProvider>
-      <div>
+      <div
+        style={{
+          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778977970/95c9bdb1-5c55-49cf-a2e6-8c1790516fa6_lqe9xy.png)`,
+          backgroundAttachment: "fixed",   // native CSS parallax for the outer BG
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         {/* ── Hero ── */}
         <ServicesHero />
 
         {/* ── Service Cards ── */}
-        <section className="py-20 bg-background overflow-hidden">
+        <section className="py-20 bg-muted overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <ParallaxFade>
               <div className="text-center mb-14">
@@ -146,7 +154,7 @@ export default function Services() {
         </section>
 
         {/* ── CTA ── */}
-        <section className="relative py-16 bg-primary overflow-hidden">
+        <section className="relative py-16 overflow-hidden bg-gradient-to-tl from-primary/20 via-primary/80 to-primary/40">
           <ParallaxScrub speedX={-0.1} speedY={0} className="absolute top-0 right-0 w-80 h-80 bg-accent/20 rounded-full blur-3xl pointer-events-none" />
           <ParallaxFade>
             <div className="max-w-4xl mx-auto px-6 text-center relative z-10">

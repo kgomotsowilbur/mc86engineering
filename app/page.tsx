@@ -55,7 +55,7 @@ export default function Home() {
     <LenisProvider>
       <div
         style={{
-          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/v1778977970/95c9bdb1-5c55-49cf-a2e6-8c1790516fa6_lqe9xy.png)`,
+          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779021958/3c415808-5797-4f43-8c0c-7a44abd4a1c5_wbdyhl.png)`,
           backgroundAttachment: "fixed",   // native CSS parallax for the outer BG
           backgroundSize: "cover",
           backgroundPosition: "center",

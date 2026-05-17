@@ -15,6 +15,7 @@ import {
   ParallaxScale,
   ParallaxScrub,
 } from "../components/parallax";
+import MapEmbed from "../components/mapembed";
 
 // ─── Hero ────────────────────────────────────────────────────────────────────
 function ContactHero() {
@@ -25,9 +26,9 @@ function ContactHero() {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-18%"]);
 
   return (
-    <section ref={ref} className="relative min-h-[45vh] flex items-center justify-center overflow-hidden bg-primary">
+    <section ref={ref} className="relative min-h-[45vh] flex items-center justify-center overflow-hidden">
       <motion.div style={{ y: bgY }} className="absolute inset-0 w-full h-[130%] -top-[15%]">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/80" />
+        <div className="absolute inset-0 bg-gradient-to-tl from-primary via-primary to-primary/60" />
       </motion.div>
 
       {/* Floating accent blobs */}
@@ -82,12 +83,20 @@ export default function Contact() {
 
   return (
     <LenisProvider>
-      <div>
+      <div
+        style={{
+          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779021963/9196f923-701a-46cb-97dd-6e627519daaa_rke7qj.png)`,
+          backgroundAttachment: "fixed",   // native CSS parallax for the outer BG
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         {/* ── Hero ── */}
         <ContactHero />
 
         {/* ── Contact Info + Form ── */}
-        <section className="py-20 bg-background overflow-hidden">
+        <section className="py-20 bg-muted overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
@@ -176,7 +185,7 @@ export default function Contact() {
         </section>
 
         {/* ── Map ── */}
-        <section className="py-0 overflow-hidden">
+        <section className="py-0 overflow-hidden bg-secondary">
           <div className="max-w-7xl mx-auto px-6 pb-20">
             <ParallaxFade>
               <div className="text-center mb-8">
@@ -188,16 +197,7 @@ export default function Contact() {
             </ParallaxFade>
             <ParallaxScale>
               <div className="rounded-2xl overflow-hidden border border-border shadow-lg h-[450px]">
-                <iframe
-                  title="MC86 Engineering & Construction Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.037374!2d28.1847!3d-26.2741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9510b229cf6bed%3A0x1!2s17+Makriel+Rd%2C+Wadeville%2C+Germiston%2C+1422%2C+South+Africa!5e0!3m2!1sen!2sza!4v1682000000000!5m2!1sen!2sza"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, pointerEvents: "none" }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                <MapEmbed />
               </div>
             </ParallaxScale>
           </div>
