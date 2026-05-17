@@ -45,9 +45,15 @@ const values = [
 
 export default function Page() {
   return (
-    <div>
-      <section className="relative min-h-[45vh] flex items-center justify-center overflow-hidden bg-primary">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/80" />
+    <div style={{ 
+      backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/v1778978926/8e0b0c63-6a9f-4e3f-b257-cf88bb170d32_owpkgz.png)`,
+      backgroundAttachment: "fixed",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat"
+    }}>
+      <section className="relative min-h-[45vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-tl from-primary via-primary to-primary/80" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -133,53 +139,17 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="py-20 bg-muted">
-        <div className="max-w-7xl mx-auto px-6">
-          <AnimatedElement>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-3">
-                Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Specialized Divisions</span>
-              </h2>
-            </div>
-          </AnimatedElement>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              { title: "SMPPE&I Division", desc: "Structural, Mechanical, Piping, Process, Electrical & Instrumentation.", img: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/80b2704b8_mc86group_com_piping_a48e7409.png", link: "/SMPPEIDivision" },
-              { title: "CEGB Division", desc: "Civil, Electrical, General Building — turnkey construction from concept to completion.", img: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/0a16723a1_mc86group_com_10-2_13f65e47.png", link: null },
-              { title: "Steel Division", desc: "Structural steel, mezzanine floors, and custom steel fabrication.", img: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/da44bfed1_mc86group_com_11-2_333db3fa.png", link: null },
-            ].map((div, index) => (
-              <AnimatedElement key={div.title} delay={index * 100}>
-                <div className="group bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img src={div.img} alt={div.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-bold text-primary mb-2">{div.title}</h3>
-                    <p className="text-muted-foreground text-sm mb-4">{div.desc}</p>
-                    {div.link ? (
-                      <Link href={div.link} className="inline-flex items-center text-primary text-sm font-semibold hover:text-accent transition-colors gap-1">
-                        Learn more <ArrowRight className="h-3.5 w-3.5" />
-                      </Link>
-                    ) : (
-                      <span className="text-muted-foreground text-sm">Coming soon</span>
-                    )}
-                  </div>
-                </div>
-              </AnimatedElement>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative py-16 bg-primary overflow-hidden">
+      <section className="relative py-16 overflow-hidden bg-gradient-to-tl from-primary/20 via-primary/80 to-primary/40">
         <div className="absolute top-0 left-0 w-72 h-72 bg-accent/20 rounded-full blur-3xl pointer-events-none" />
         <AnimatedElement>
-          <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-4">Ready to start your next project?</h2>
-            <p className="text-primary-foreground/80 mb-6 text-sm">Contact our team today and let us bring your engineering vision to life.</p>
-            <a href="tel:+27637179577">
-              <Button className="bg-accent hover:bg-accent/90 text-primary-foreground font-bold px-8 shadow-lg">Call Us Now</Button>
-            </a>
+         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-3">
+              Engineering Built for Performance & Reliability
+            </h2>
+
+            <p className="text-primary-foreground/80 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+              Mc'86 Engineering & Construction delivers dependable engineering, fabrication, and construction solutions designed to keep industries moving with precision, safety, and quality workmanship.
+            </p>
           </div>
         </AnimatedElement>
       </section>

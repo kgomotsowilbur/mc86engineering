@@ -7,6 +7,7 @@ import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -31,12 +32,14 @@ export default function Header() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 "bg-background/95 backdrop-blur-md border-b border-border shadow-sm" : "bg-transparent"}`}>
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+      <div className="mx-auto px-2 md:px-10 h-16 md:h-22 flex items-center justify-between gap-4">
         <Link href="/" className="flex items-center flex-shrink-0">
-          <img
-            src="https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/5f58b058a_mc86group_com_MC-86-logo-1_14886ea9.png"
+          <Image
+            src="https://res.cloudinary.com/dk7dsm0lc/image/upload/v1778948254/48a25c25-5863-4cd8-b5a7-cd876e5718b0_w8htoo.png"
             alt="MC'86 logo"
-            className={`h-10 w-auto object-contain transition-all duration-300`}
+            width={700}
+            height={700}
+            className={`h-24 md:h-40 w-auto object-contain transition-all duration-300`}
             onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
           />
         </Link>
@@ -46,7 +49,7 @@ export default function Header() {
             <Link
               key={item.label}
               href={item.to}
-              className={`text-sm font-medium px-3 py-2 rounded-md transition-colors hover:bg-primary/10 hover:text-primary ${pathname === item.to ? "text-primary font-semibold" : "text-foreground"}`}
+              className={`text-base font-bold px-3 py-2 rounded-md transition-colors hover:bg-primary/10 hover:text-primary ${pathname === item.to ? "text-primary font-black" : "text-foreground"}]`}
             >
               {item.label}
             </Link>
@@ -55,7 +58,7 @@ export default function Header() {
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="lg:hidden">
-            <Button variant="ghost" size="icon" className={solid ? "text-foreground" : "text-primary-foreground hover:bg-primary-foreground/10"}>
+            <Button variant="ghost" size="icon" className={"text-foreground"}>
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>

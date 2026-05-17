@@ -7,6 +7,7 @@ import { Badge } from "./components/ui/badge";
 import Link from "next/link";
 import { Button } from "./components/ui/button";
 import ClientsMarquee from "./components/clientsmarquee";
+import Dotbox from "./components/ui/dotbox";
 
 const AnimatedElement = ({ children, delay = 0 }) => {
   const ref = useRef(null);
@@ -31,8 +32,8 @@ const AnimatedElement = ({ children, delay = 0 }) => {
 };
 
 const heroImages = [
-  "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1778941158/629f1d22-4695-4a98-bd59-f36fae0be57d_g5ozlm.png",
-  "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1778941837/74637125-0b33-4fc8-87f8-47244072d60d_jkvkdu.png"
+  "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941158/629f1d22-4695-4a98-bd59-f36fae0be57d_g5ozlm.png",
+  "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941837/74637125-0b33-4fc8-87f8-47244072d60d_jkvkdu.png"
 ];
 
 const clientLogos = [
@@ -117,132 +118,80 @@ export default function Home() {
   const svcItems = services.length > 0 ? services : staticServices;
 
   return (
-    <div>
+    <div style={{ 
+      backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/v1778977970/95c9bdb1-5c55-49cf-a2e6-8c1790516fa6_lqe9xy.png)`,
+      backgroundAttachment: "fixed",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat"
+    }}>
       {/* Hero */}
-      <section className="relative w-full min-h-[82vh] flex items-center justify-center overflow-hidden">
-        {/* Previous slide (fading out) */}
-        {prevHeroIndex !== null && (
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-800"
-            style={{ backgroundImage: `url('${heroImages[prevHeroIndex]}')`, opacity: 1 }}
-          />
-        )}
-        {/* Current slide */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-800"
-          style={{ backgroundImage: `url('${heroImages[heroIndex]}')`, opacity: fading ? 0 : 1 }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/0 via-primary/20 to-primary/75" />
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-          className="relative z-10 text-center px-6 max-w-5xl mx-auto self-end mb-16"
-        >
-          <Badge className="mb-5 bg-accent text-primary-foreground text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">
-            MC'86 GROUP
-          </Badge>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-primary-foreground leading-tight tracking-tight mb-5">
-            Welcome to{" "}
-            <span className="bg-gradient-to-r from-accent via-primary-foreground to-accent bg-clip-text text-transparent" style={{ backgroundSize: "200%", animation: "gradient-x 4s ease infinite" }}>
-              Engineering &amp; Construction
-            </span>
-          </h1>
-          <p className="text-primary-foreground/80 text-lg sm:text-xl max-w-2xl mx-auto mb-10">
-            Multi-discipline engineering and construction turnkey solutions specializing in engineering, procurement, fabrication, installation, and project management.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/about">
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary-foreground font-bold px-8 shadow-lg">
-                About Us <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-            <Link href="/services">
-              <Button size="lg" variant="outline" className="border-primary-foreground/50 text-primary-foreground bg-transparent hover:bg-primary-foreground/10 font-bold px-8">
-                Our Services
-              </Button>
-            </Link>
-          </div>
-        </motion.div>
-        {/* Dot indicators */}
-        <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center gap-1.5">
-          {heroImages.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goToSlide(i)}
-              className={`rounded-full transition-all duration-300 ${i === heroIndex ? "w-6 h-2 bg-accent" : "w-2 h-2 bg-primary-foreground/40 hover:bg-primary-foreground/70"}`}
-            />
-          ))}
+      <section className="bg-muted relative flex items-center justify-center md:pl-30 md:pr-10 md:pt-8 pb-0">
+        <div className="hidden md:flex w-60 h-96 absolute top-20 -left-4 z-30">
+          <Dotbox/>
         </div>
-        {/* <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent" /> */}
-      </section>
-
-      {/* Divisions */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-6">
-          <AnimatedElement>
-            <div className="text-center mb-14">
-              <Badge className="mb-3 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1">What We Specialise In</Badge>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Divisions</span></h2>
+        <div className="hidden md:flex bg-[#323209] w-[800px] h-[700px] absolute top-0 left-8 z-10"></div>
+        <div className="relative z-20 w-full min-h-[82vh] flex items-center justify-center overflow-hidden">
+          {/* Previous slide (fading out) */}
+          {prevHeroIndex !== null && (
+            <div
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-800"
+              style={{ backgroundImage: `url('${heroImages[prevHeroIndex]}')`, opacity: 1 }}
+            />
+          )}
+          {/* Current slide */}
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat  duration-800 bg-muted"
+            style={{ backgroundImage: `url('${heroImages[heroIndex]}')`, opacity: fading ? 0 : 1 }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/0 via-primary/20 to-primary/75" />
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="relative z-10 text-center px-6 max-w-5xl mx-auto self-end mb-16"
+          >
+            <Badge className="mb-5 bg-accent text-primary-foreground text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">
+              MC'86 GROUP
+            </Badge>
+            <h1 className="text-xl sm:text-3xl md:text-4xl font-bold text-primary-foreground leading-tight tracking-tight mb-5">
+              <span className="text-4xl sm:text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-accent via-primary-foreground to-accent bg-clip-text text-transparent" style={{ backgroundSize: "200%", animation: "gradient-x 4s ease infinite" }}>
+                Engineering &amp; Construction
+              </span>
+            </h1>
+            <p className="text-primary-foreground/80 text-lg sm:text-xl max-w-2xl mx-auto mb-10">
+              Multi-discipline engineering and construction turnkey solutions specializing in engineering, procurement, fabrication, installation, and project management.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/about">
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary-foreground font-bold px-8 shadow-lg">
+                  About Us <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/services">
+                <Button size="lg" variant="outline" className="border-primary-foreground/50 text-primary-foreground bg-transparent hover:bg-primary-foreground/10 font-bold px-8">
+                  Our Services
+                </Button>
+              </Link>
             </div>
-          </AnimatedElement>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            {divItems.map((div, index) => (
-              <AnimatedElement key={div.title} delay={index * 100}>
-                <div className="group bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 flex flex-col h-full">
-                  <div className="aspect-[4/3] overflow-hidden bg-muted">
-                    <img src={div.image_url} alt={div.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-xl font-bold text-primary mb-1">{div.title}</h3>
-                    <p className="text-xs font-semibold text-accent uppercase tracking-widest mb-3">{div.subtitle}</p>
-                    <p className="text-muted-foreground text-sm leading-relaxed flex-1">{div.description}</p>
-                    <div className="mt-5">
-                      {div.link && div.link !== "#" ? (
-                        <Link href={div.link} className="inline-flex items-center text-primary text-sm font-semibold hover:text-accent transition-colors gap-1">
-                          Read more <ArrowRight className="h-3.5 w-3.5" />
-                        </Link>
-                      ) : (
-                        <span className="text-muted-foreground text-sm">Read more <ArrowRight className="inline h-3.5 w-3.5" /></span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </AnimatedElement>
+          </motion.div>
+          {/* Dot indicators */}
+          <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center gap-1.5">
+            {heroImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goToSlide(i)}
+                className={`rounded-full transition-all duration-300 ${i === heroIndex ? "w-6 h-2 bg-accent" : "w-2 h-2 bg-primary-foreground/40 hover:bg-primary-foreground/70"}`}
+              />
             ))}
           </div>
+          {/* <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent" /> */}
         </div>
-      </section>
-
-      {/* About */}
-      <section className="py-20 bg-secondary">
-        <div className="max-w-7xl mx-auto px-6">
-          <AnimatedElement>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 items-center">
-              <div className="relative">
-                <img src="https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/980a3dfe0_mc86group_com_12-2_67dacc48.png" alt="Who are we" className="w-full h-auto rounded-xl shadow-xl" />
-              </div>
-              <div>
-                <Badge className="mb-3 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1">About MC'86</Badge>
-                <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-5 leading-tight">
-                  Who are <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">we</span>
-                </h2>
-                <p className="text-muted-foreground leading-relaxed mb-6 text-sm">
-                  MC'86 Engineering &amp; Construction has been providing high quality services for the past five years as a multi-discipline engineering and construction turnkey entity which specializes in engineering, procurement, fabrication, installation, commissioning, maintenance and project management of any steelworks (Structural Steel, Mezzanine and Piping) from our specialized division.
-                </p>
-                <Link href="/about">
-                  <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
-                    Read more <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </AnimatedElement>
-        </div>
+        <div className="hidden md:flex bg-[#435426] w-[400px] h-[700px] absolute -bottom-30 right-0 z-10"></div>
       </section>
 
       {/* Services */}
-      <section className="py-20 bg-muted">
+      <section className="py-10 bg-muted">
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedElement>
             <div className="text-center mb-14">
@@ -285,24 +234,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About */}
+      <section className="py-20 bg-secondary">
+        <div className="max-w-7xl mx-auto px-6">
+          <AnimatedElement>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 items-center">
+              <div className="relative">
+                <img src="https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/980a3dfe0_mc86group_com_12-2_67dacc48.png" alt="Who are we" className="w-full h-auto rounded-xl shadow-xl" />
+              </div>
+              <div>
+                <Badge className="mb-3 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1">About MC'86</Badge>
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-5 leading-tight">
+                  Who are <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">we</span>
+                </h2>
+                <p className="text-muted-foreground leading-relaxed mb-6 text-sm">
+                  MC'86 Engineering &amp; Construction has been providing high quality services for the past five years as a multi-discipline engineering and construction turnkey entity which specializes in engineering, procurement, fabrication, installation, commissioning, maintenance and project management of any steelworks (Structural Steel, Mezzanine and Piping) from our specialized division.
+                </p>
+                <Link href="/about">
+                  <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
+                    Read more <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </AnimatedElement>
+        </div>
+      </section>
+
       {/* Clients Marquee */}
       <ClientsMarquee />
 
       {/* CTA */}
-      <section className="relative py-16 overflow-hidden bg-primary">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-accent/20 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative py-16 overflow-hidden bg-gradient-to-tl from-primary/20 via-primary/80 to-primary/40">
+        <div className="absolute top-0 left-0 w-72 h-72 rounded-full blur-3xl pointer-events-none" />
         <AnimatedElement>
           <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-3">Want to know more about Mc'86 Engineering &amp; Construction?</h2>
-            <p className="text-primary-foreground/70 text-sm mb-6">Get in touch with our team today.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a href="tel:+27637179577" className="flex items-center gap-2 text-primary-foreground font-semibold bg-primary-foreground/10 hover:bg-primary-foreground/20 px-5 py-2.5 rounded-lg transition-colors">
-                <Phone className="h-5 w-5 text-accent" /> +27 (0) 63 717 9577
-              </a>
-              <a href="tel:+27736023699" className="flex items-center gap-2 text-primary-foreground font-semibold bg-primary-foreground/10 hover:bg-primary-foreground/20 px-5 py-2.5 rounded-lg transition-colors">
-                <Phone className="h-5 w-5 text-accent" /> +27 (0) 73 602 3699
-              </a>
-            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-3">
+              Trusted Engineering Solutions for Modern Industry
+            </h2>
+
+            <p className="text-primary-foreground/80 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+              We combine technical expertise, innovation, and industry experience to deliver construction and engineering services that meet the highest standards of durability and efficiency.
+            </p>
           </div>
         </AnimatedElement>
       </section>

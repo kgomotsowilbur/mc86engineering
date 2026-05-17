@@ -122,16 +122,13 @@ export default function Services() {
         <div className="absolute top-0 right-0 w-80 h-80 bg-accent/20 rounded-full blur-3xl pointer-events-none" />
         <AnimatedElement>
           <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-3">Ready to discuss your project?</h2>
-            <p className="text-primary-foreground/80 mb-6 text-sm">Contact our expert team for a consultation.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a href="tel:+27637179577" className="flex items-center gap-2 text-primary-foreground font-semibold bg-primary-foreground/10 hover:bg-primary-foreground/20 px-5 py-2.5 rounded-lg transition-colors">
-                <Phone className="h-5 w-5" /> +27 (0) 63 717 9577
-              </a>
-              <a href="tel:+27736023699" className="flex items-center gap-2 text-primary-foreground font-semibold bg-primary-foreground/10 hover:bg-primary-foreground/20 px-5 py-2.5 rounded-lg transition-colors">
-                <Phone className="h-5 w-5" /> +27 (0) 73 602 3699
-              </a>
-            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-3">
+              Precision Engineering That Drives Industrial Excellence
+            </h2>
+
+            <p className="text-primary-foreground/80 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+              From structural projects to specialized engineering services, we provide practical solutions backed by skilled craftsmanship, modern equipment, and a commitment to delivering results.
+            </p>
           </div>
         </AnimatedElement>
       </section>
