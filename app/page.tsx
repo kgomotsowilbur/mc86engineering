@@ -1,13 +1,11 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight, CheckCircle, Phone } from "lucide-react";
 import { Badge } from "./components/ui/badge";
 import Link from "next/link";
 import { Button } from "./components/ui/button";
 import ClientsMarquee from "./components/clientsmarquee";
-import Dotbox from "./components/ui/dotbox";
 import {
   ParallaxLayer,
   ParallaxFloat,
@@ -16,6 +14,7 @@ import {
   ParallaxScrub,
 } from "./components/parallax";
 import LenisProvider from "./components/lenisprovider";
+import { HeroCarousel } from "./components/herocarousel";
 
 // ─── AnimatedElement (kept for compatibility) ───────────────────────────────
 const AnimatedElement = ({ children, delay = 0 }) => {
@@ -39,178 +38,6 @@ const AnimatedElement = ({ children, delay = 0 }) => {
     </div>
   );
 };
-
-// ─── Hero with scroll-driven parallax ───────────────────────────────────────
-function HeroSection() {
-  const heroImages = [
-    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941158/629f1d22-4695-4a98-bd59-f36fae0be57d_g5ozlm.png",
-    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941837/74637125-0b33-4fc8-87f8-47244072d60d_jkvkdu.png",
-  ];
-
-  const heroRef = useRef<HTMLElement>(null);
-  const [heroIndex, setHeroIndex] = useState(0);
-  const [prevHeroIndex, setPrevHeroIndex] = useState<number | null>(null);
-  const [fading, setFading] = useState(false);
-  const [mounted, setMounted] = useState(false);
- 
-  // Trigger entrance animations after mount
-  useEffect(() => {
-    const t = setTimeout(() => setMounted(true), 100);
-    return () => clearTimeout(t);
-  }, []);
- 
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
- 
-  // Background image drifts upward
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  // Hero content fades + rises on scroll-out
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
- 
-  // Decorative blocks slide OUT as user scrolls away
-  const leftBlockX = useTransform(scrollYProgress, [0, 0.6], ["0%", "-100%"]);
-  const rightBlockX = useTransform(scrollYProgress, [0, 0.6], ["0%", "100%"]);
-  const dotboxX = useTransform(scrollYProgress, [0, 0.5], ["0%", "-120%"]);
- 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPrevHeroIndex(heroIndex);
-      setFading(true);
-      setTimeout(() => {
-        setHeroIndex((i) => (i + 1) % heroImages.length);
-        setFading(false);
-        setPrevHeroIndex(null);
-      }, 800);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [heroIndex]);
- 
-  const goToSlide = (i: number) => {
-    if (i === heroIndex) return;
-    setPrevHeroIndex(heroIndex);
-    setFading(true);
-    setTimeout(() => {
-      setHeroIndex(i);
-      setFading(false);
-      setPrevHeroIndex(null);
-    }, 800);
-  };
-
-  return (
-    <section
-      ref={heroRef}
-      className="bg-muted relative flex items-center justify-center md:pl-30 md:pr-10 md:pt-8 pb-0"
-    >
-      {/* ── Dotbox: slides in from the left on mount, exits left on scroll ── */}
-      <motion.div
-        className="hidden md:flex w-60 h-96 absolute top-20 -left-4 z-30"
-        style={{ x: dotboxX }}
-        initial={{ x: "-110%" }}
-        animate={mounted ? { x: "0%" } : { x: "-110%" }}
-        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-      >
-        <Dotbox />
-      </motion.div>
- 
-      {/* ── Left green block: slides in from the left on mount, exits left on scroll ── */}
-      <motion.div
-        className="hidden md:block absolute top-0 left-8 z-10"
-        style={{ x: leftBlockX }}
-        initial={{ x: "-100%" }}
-        animate={mounted ? { x: "0%" } : { x: "-100%" }}
-        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0 }}
-      >
-        <div className="bg-[#323209] w-[800px] h-[700px]" />
-      </motion.div>
- 
-      {/* ── Main hero image area ── */}
-      <div className="relative z-20 w-full min-h-[82vh] flex items-center justify-center overflow-hidden">
-        {/* Parallax background images */}
-        <motion.div className="absolute inset-0 w-full h-[120%] -top-[10%]" style={{ y: bgY }}>
-          {prevHeroIndex !== null && (
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-800"
-              style={{ backgroundImage: `url('${heroImages[prevHeroIndex]}')`, opacity: 1 }}
-            />
-          )}
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat duration-800 bg-muted"
-            style={{ backgroundImage: `url('${heroImages[heroIndex]}')`, opacity: fading ? 0 : 1 }}
-          />
-        </motion.div>
- 
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/0 via-primary/20 to-primary/75" />
- 
-        {/* Content with scroll-out parallax */}
-        <motion.div
-          style={{ y: contentY, opacity: contentOpacity }}
-          className="relative z-10 text-center px-6 max-w-5xl mx-auto self-end mb-16"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-          >
-            <Badge className="mb-5 bg-accent text-primary-foreground text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">
-              MC'86 GROUP
-            </Badge>
-            <h1 className="text-xl sm:text-3xl md:text-4xl font-bold text-primary-foreground leading-tight tracking-tight mb-5">
-              <span
-                className="text-4xl sm:text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-accent via-primary-foreground to-accent bg-clip-text text-transparent"
-                style={{ backgroundSize: "200%", animation: "gradient-x 4s ease infinite" }}
-              >
-                Engineering &amp; Construction
-              </span>
-            </h1>
-            <p className="text-primary-foreground/80 text-lg sm:text-xl max-w-2xl mx-auto mb-10">
-              Multi-discipline engineering and construction turnkey solutions specializing in engineering, procurement,
-              fabrication, installation, and project management.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/about">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary-foreground font-bold px-8 shadow-lg">
-                  About Us <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Link href="/services">
-                <Button size="lg" variant="outline" className="border-primary-foreground/50 text-primary-foreground bg-transparent hover:bg-primary-foreground/10 font-bold px-8">
-                  Our Services
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </motion.div>
- 
-        {/* Dot indicators */}
-        <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center gap-1.5">
-          {heroImages.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goToSlide(i)}
-              className={`rounded-full transition-all duration-300 ${
-                i === heroIndex ? "w-6 h-2 bg-accent" : "w-2 h-2 bg-primary-foreground/40 hover:bg-primary-foreground/70"
-              }`}
-            />
-          ))}
-        </div>
-      </div>
- 
-      {/* ── Right olive block: slides in from the right on mount, exits right on scroll ── */}
-      <motion.div
-        className="hidden md:block absolute -bottom-30 right-0 z-10"
-        style={{ x: rightBlockX }}
-        initial={{ x: "100%" }}
-        animate={mounted ? { x: "0%" } : { x: "100%" }}
-        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-      >
-        <div className="bg-[#435426] w-[400px] h-[700px]" />
-      </motion.div>
-    </section>
-  );
-}
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 const staticServices = [
@@ -236,7 +63,7 @@ export default function Home() {
         }}
       >
         {/* ── Hero ── */}
-        <HeroSection />
+        <HeroCarousel />
 
         {/* ── Services ── */}
         <section className="py-10 bg-muted">
