@@ -1,6 +1,7 @@
 "use client"
 
 import { Phone, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -10,7 +11,6 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <img src="https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/5f58b058a_mc86group_com_MC-86-logo-1_14886ea9.png" alt="MC'86 logo" className="h-12 w-auto object-contain mb-4 brightness-0 invert" onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-5">A multi-discipline engineering and construction turnkey entity specializing in engineering, procurement, fabrication, installation, commissioning, maintenance and project management.</p>
             <div className="flex items-center gap-3">
               {/* <a href="#" aria-label="Facebook" className="w-8 h-8 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent/30 transition-colors"><Facebook className="h-4 w-4" /></a>
@@ -67,7 +67,14 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
-                <span className="text-primary-foreground/80 text-sm">South Africa</span>
+                <a
+                  href="https://maps.google.com/?q=17+Makriel+Rd,+Wadeville,+Germiston,+1422,+South+Africa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-foreground/80 text-sm hover:text-accent transition-colors"
+                >
+                  17 Makriel Rd, Wadeville, Germiston, 1422
+                </a>
               </li>
             </ul>
           </div>
