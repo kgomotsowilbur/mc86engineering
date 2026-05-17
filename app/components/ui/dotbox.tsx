@@ -3,8 +3,8 @@ export default function Dotbox() {
         <div
             style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(4, 12px)",
-                gridTemplateRows: "repeat(15, 12px)",
+                gridTemplateColumns: "repeat(4, 8px)",
+                gridTemplateRows: "repeat(15, 8px)",
                 gap: "23px",
                 padding: "24px",
                 width: "fit-content",
@@ -14,8 +14,8 @@ export default function Dotbox() {
                 <div
                 key={i}
                 style={{
-                    width: "12px",
-                    height: "12px",
+                    width: "8px",
+                    height: "8px",
                     borderRadius: "50%",
                     background: `
                     radial-gradient(
