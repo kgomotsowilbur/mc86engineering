@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import {
-  ArrowRight,
   CheckCircle,
   Award,
   Users,
@@ -14,11 +13,8 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import { Badge } from "../components/ui/badge";
-import Link from "next/link";
-import { Button } from "../components/ui/button";
 import LenisProvider from "../components/lenisprovider";
 import {
-  ParallaxLayer,
   ParallaxFloat,
   ParallaxFade,
   ParallaxScale,
@@ -127,7 +123,7 @@ export default function Page() {
     <LenisProvider>
       <div
         style={{
-          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778978926/8e0b0c63-6a9f-4e3f-b257-cf88bb170d32_owpkgz.png)`,
+          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778978926/MC%2786/8e0b0c63-6a9f-4e3f-b257-cf88bb170d32_owpkgz.png)`,
           backgroundAttachment: "fixed",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -154,13 +150,13 @@ export default function Page() {
                 <h2 className="text-4xl sm:text-5xl font-bold text-foreground leading-tight mb-5">
                   The Foundation Behind{" "}
                   <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                    MC'86 Group
+                    Us
                   </span>
                 </h2>
 
                 <p className="max-w-2xl mx-auto text-muted-foreground leading-relaxed text-sm sm:text-base">
-                  Built on innovation, safety, trust and engineering excellence —
-                  every project reflects our commitment to quality workmanship and
+                  Built on innovation, safety, trust and engineering excellence.
+                  Every project reflects our commitment to quality workmanship and
                   long-term client relationships.
                 </p>
               </div>
@@ -196,7 +192,7 @@ export default function Page() {
                     </h3>
 
                     <p className="text-primary-foreground/80 leading-relaxed text-sm">
-                      MC'86 Engineering & Construction continues to deliver trusted
+                      We continue to deliver trusted
                       engineering, structural steel, piping and fabrication solutions
                       across demanding industries with a strong focus on safety,
                       reliability and performance.
@@ -230,74 +226,74 @@ export default function Page() {
               </ParallaxFloat>
 
               {/* Right Grid */}
-              <div className="lg:col-span-7 grid grid-cols-2 gap-6">
+              <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
                 
                 {/* Vision */}
                 <div className="group relative overflow-hidden rounded-3xl border border-border/50 bg-card/90 backdrop-blur-sm p-7 shadow-md">
-                  <div className="relative z-10 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6">
-                    <Eye className="h-7 w-7 text-white" />
+                  <div className="flex items-start gap-6 md:block">
+                    <div className="relative z-10 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-0 md:mb-6 shrink-0">
+                      <Eye className="h-7 w-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground mb-4">Vision</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        To provide excellent project deliverables and downtime services
+                        that exceeds the expectations of our esteemed clients.
+                      </p>
+                    </div>
                   </div>
-
-                  <h3 className="text-2xl font-bold text-foreground mb-4">
-                    Vision
-                  </h3>
-
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    To provide excellent project deliverables and downtime services
-                    that exceeds the expectations of our esteemed clients.
-                  </p>
                 </div>
 
                 {/* Affiliations */}
                 <div className="group relative overflow-hidden rounded-3xl border border-border/50 bg-card/90 backdrop-blur-sm p-7 shadow-md">
-                  <div className="relative z-10 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6">
-                    <BadgeCheck className="h-7 w-7 text-white" />
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-foreground mb-4">
-                    Affiliations
-                  </h3>
-
-                  <div className="space-y-2 text-muted-foreground text-sm">
-                    <p>CIDB Registered</p>
-                    <p>ISO Compliant Processes</p>
+                  <div className="flex items-start gap-6 md:block">
+                    <div className="relative z-10 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-0 md:mb-6 shrink-0">
+                      <BadgeCheck className="h-7 w-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground mb-4">Affiliations</h3>
+                      <div className="space-y-2 text-muted-foreground text-sm">
+                        <p>CIDB Registered</p>
+                        <p>ISO Compliant Processes</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Mission */}
                 <div className="group relative overflow-hidden rounded-3xl border border-border/50 bg-card/90 backdrop-blur-sm p-7 shadow-md">
-                  <div className="relative z-10 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6">
-                    <Target className="h-7 w-7 text-white" />
+                  <div className="flex items-start gap-6 md:block">
+                    <div className="relative z-10 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-0 md:mb-6 shrink-0">
+                      <Target className="h-7 w-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground mb-4">Mission</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        To establish and maintain lifetime relationships with our clients
+                        and provide exceptional customer services through fully integrated
+                        expertise, modern project approaches and advanced maintenance
+                        techniques.
+                      </p>
+                    </div>
                   </div>
-
-                  <h3 className="text-2xl font-bold text-foreground mb-4">
-                    Mission
-                  </h3>
-
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    To establish and maintain lifetime relationships with our clients
-                    and provide exceptional customer services through fully integrated
-                    expertise, modern project approaches and advanced maintenance
-                    techniques.
-                  </p>
                 </div>
 
                 {/* Core Values */}
                 <div className="group relative overflow-hidden rounded-3xl border border-border/50 bg-card/90 backdrop-blur-sm p-7 shadow-md">
-                  <div className="relative z-10 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6">
-                    <ShieldCheck className="h-7 w-7 text-white" />
+                  <div className="flex items-start gap-6 md:block">
+                    <div className="relative z-10 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-0 md:mb-6 shrink-0">
+                      <ShieldCheck className="h-7 w-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground mb-4">Core Values</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        We believe in satisfying our clients with respect and trust. We
+                        grow through creativity, invention and innovation. We integrate
+                        honesty, integrity and business ethics into all aspects of our
+                        business functioning.
+                      </p>
+                    </div>
                   </div>
-
-                  <h3 className="text-2xl font-bold text-foreground mb-4">
-                    Core Values
-                  </h3>
-
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    We believe in satisfying our clients with respect and trust. We
-                    grow through creativity, invention and innovation. We integrate
-                    honesty, integrity and business ethics into all aspects of our
-                    business functioning.
-                  </p>
                 </div>
               </div>
             </div>
@@ -374,7 +370,7 @@ export default function Page() {
 
                 <p className="max-w-2xl mx-auto text-muted-foreground mt-5 text-sm sm:text-base leading-relaxed">
                   Every project we undertake is guided by a commitment to excellence,
-                  innovation, integrity and safety — ensuring dependable results that
+                  innovation, integrity and safety. Ensuring dependable results that
                   create long-term value for our clients.
                 </p>
               </div>
@@ -396,11 +392,6 @@ export default function Page() {
                       {/* Icon */}
                       <div className="relative z-10 w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg mb-6">
                         <CheckCircle className="h-8 w-8 text-white" />
-                      </div>
-
-                      {/* Number accent */}
-                      <div className="absolute top-6 right-6 text-5xl font-black text-primary/5 group-hover:text-primary/10 transition-colors duration-500">
-                        0{index + 1}
                       </div>
 
                       {/* Content */}

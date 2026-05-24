@@ -102,7 +102,7 @@ export default function Contact() {
     <LenisProvider>
       <div
         style={{
-          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779021963/9196f923-701a-46cb-97dd-6e627519daaa_rke7qj.png)`,
+          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779021963/MC%2786/9196f923-701a-46cb-97dd-6e627519daaa_rke7qj.png)`,
           backgroundAttachment: "fixed",   // native CSS parallax for the outer BG
           backgroundSize: "cover",
           backgroundPosition: "center",

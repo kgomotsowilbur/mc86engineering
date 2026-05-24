@@ -11,9 +11,9 @@ import Dotbox from "./ui/dotbox";
 // ─── Images ───────────────────────────────────────────────────────────────────
 
 const HERO_IMAGES = [
-    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779021963/9196f923-701a-46cb-97dd-6e627519daaa_rke7qj.png",
-    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941158/629f1d22-4695-4a98-bd59-f36fae0be57d_g5ozlm.png",
-    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941837/74637125-0b33-4fc8-87f8-47244072d60d_jkvkdu.png"
+    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779021963/MC%2786/9196f923-701a-46cb-97dd-6e627519daaa_rke7qj.png",
+    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941158/MC%2786/629f1d22-4695-4a98-bd59-f36fae0be57d_g5ozlm.png",
+    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941837/MC%2786/74637125-0b33-4fc8-87f8-47244072d60d_jkvkdu.png"
 ];
 
 const INTERVAL_MS = 5000;

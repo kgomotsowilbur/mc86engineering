@@ -251,10 +251,6 @@ export default function Page() {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
                             <div className="absolute bottom-0 left-0 p-8">
-                              <div className="text-white/60 text-xs uppercase tracking-[0.25em] mb-2">
-                                MC'86 Group
-                              </div>
-
                               <h3 className="text-3xl font-bold text-white">
                                 {project.title}
                               </h3>
@@ -280,12 +276,6 @@ export default function Page() {
 
                             {/* Hover line */}
                             <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-500" />
-
-                            <div className="absolute bottom-6 left-6">
-                              <div className="text-white font-semibold text-lg">
-                                Project {imgIndex + 1}
-                              </div>
-                            </div>
                           </div>
                         </ParallaxFloat>
                       ))}

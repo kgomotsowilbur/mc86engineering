@@ -83,7 +83,6 @@ export default function Footer() {
       <div className="border-t border-primary-foreground/10">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-primary-foreground/50 text-xs">© {currentYear} MC'86 Engineering &amp; Construction. All rights reserved.</p>
-          <p className="text-primary-foreground/30 text-xs">MC'86 Group</p>
         </div>
       </div>
     </footer>

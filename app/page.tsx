@@ -120,7 +120,7 @@ export default function Home() {
     <LenisProvider>
       <div
         style={{
-          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779021958/3c415808-5797-4f43-8c0c-7a44abd4a1c5_wbdyhl.png)`,
+          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779021958/MC%2786/3c415808-5797-4f43-8c0c-7a44abd4a1c5_wbdyhl.png)`,
           backgroundAttachment: "fixed",
           backgroundSize: "cover",
           backgroundPosition: "center",
