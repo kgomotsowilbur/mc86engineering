@@ -395,7 +395,7 @@ export function HeroCarousel() {
         />
 
         {/* Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/0 via-primary/20 to-primary/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/0 via-primary/40 to-primary/75" />
 
         {/* Content */}
         <motion.div
@@ -407,13 +407,15 @@ export function HeroCarousel() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
           >
-            <Badge className="mb-5 bg-accent text-primary-foreground text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">
-              MC&apos;86 GROUP
-            </Badge>
-
-            <h1 className="text-xl sm:text-3xl md:text-4xl font-bold text-primary-foreground leading-tight tracking-tight mb-5">
+            <h1 className="flex flex-col text-xl sm:text-3xl md:text-4xl font-bold text-primary-foreground leading-tight tracking-tight mb-5">
               <span
                 className="text-4xl sm:text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-accent via-primary-foreground to-accent bg-clip-text text-transparent"
+                style={{ backgroundSize: "200%", animation: "gradient-x 4s ease infinite" }}
+              >
+                MC&apos;86
+              </span>
+              <span
+                className="text-4xl sm:text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-accent via-primary-foreground to-accent bg-clip-text text-transparent pb-2"
                 style={{ backgroundSize: "200%", animation: "gradient-x 4s ease infinite" }}
               >
                 Engineering &amp; Construction
