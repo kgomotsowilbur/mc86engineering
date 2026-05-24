@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   const { name, email, phone, subject, message } = await req.json();
 
   const { error } = await resend.emails.send({
-    from: `${name} Project Enquiry <onboarding@resend.dev>`,
+    from: `${name} Project Enquiry <no-reply@mc86group.com>`,
     to: ["info@mc86group.com"],
     replyTo: email,
     subject: `New Enquiry: ${subject || "General"}`,
@@ -217,7 +217,6 @@ export async function POST(req: NextRequest) {
                     >
                         <p
                         style="
-                            margin: 0 0 14px 0;
                             color: #55624f;
                             font-size: 12px;
                             font-weight: 700;
@@ -230,11 +229,13 @@ export async function POST(req: NextRequest) {
 
                         <p
                         style="
+                            style="
                             margin: 0;
                             color: #444;
                             font-size: 14px;
                             line-height: 1.8;
                             white-space: pre-wrap;
+                            text-align: left;
                         "
                         >
                             ${message}

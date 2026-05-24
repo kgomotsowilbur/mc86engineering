@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useRef } from "react";
 import { Badge } from "../components/ui/badge";
 import LenisProvider from "../components/lenisprovider";
 import {
@@ -17,13 +16,11 @@ import {
   Factory,
   Pipette,
   ShieldCheck,
+  Zap,
 } from "lucide-react";
-import Link from "next/link";
-import { Button } from "../components/ui/button";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Project Data
-// Replace image URLs later
 // ─────────────────────────────────────────────────────────────────────────────
 
 const projectCategories = [
@@ -34,9 +31,22 @@ const projectCategories = [
     description:
       "Heavy-duty infrastructure construction, industrial foundations and concrete engineering built for longevity and structural performance.",
     images: [
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1400&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1400&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1400&auto=format&fit=crop",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614628/MC%2786/IMG_20260516_103657_ecb4a6.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614411/MC%2786/DSC_9730_c5xela.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614623/MC%2786/IMG_20240226_111055_xy4cjp.jpg",
+    ],
+  },
+
+  {
+    title: "Eletrical Works",
+    icon: Zap,
+    accent: "from-accent to-primary",
+    description:
+      "Reliable electrical installations, maintenance and industrial power solutions engineered for safety, efficiency and long-term performance.",
+    images: [
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/c_crop,w_3072,h_2304,x_0,y_270,ar_4:3/f_auto,q_auto,w_1400/v1779614025/MC%2786/IMG_20260505_113037_hhejtr.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779612703/MC%2786/20211111_133409_kmorvo.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614936/MC%2786/DSC_0510_xqfwf9.jpg",
     ],
   },
 
@@ -47,9 +57,9 @@ const projectCategories = [
     description:
       "Precision industrial piping installations engineered for efficiency, durability and operational reliability in demanding environments.",
     images: [
-      "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=1400&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1400&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=1400&auto=format&fit=crop",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/c_crop,ar_4:3/f_auto,q_auto,w_1400/v1779613875/MC%2786/DSC_0397_2_xebhkx.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613805/MC%2786/IMG-20250122-WA0000_mtx9bp.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613971/MC%2786/IMG_20260505_105431_oj2qqv.jpg",
     ],
   },
 
@@ -60,9 +70,9 @@ const projectCategories = [
     description:
       "Custom industrial tank fabrication solutions designed with uncompromised quality, safety and operational excellence.",
     images: [
-      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1400&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1400&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=1400&auto=format&fit=crop",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613949/MC%2786/IMG_20120828_090618_yzjsyc.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613936/MC%2786/IMG_20120810_160841_pgbwit.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614462/MC%2786/IMG_20120626_115006_qcvrqw.jpg",
     ],
   },
 
@@ -73,9 +83,9 @@ const projectCategories = [
     description:
       "Engineered steel structures fabricated and installed to withstand the most demanding industrial and commercial applications.",
     images: [
-      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?q=80&w=1400&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1400&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1519996529931-28324d5a630e?q=80&w=1400&auto=format&fit=crop",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613854/MC%2786/20120907_090233_lgckqp.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614234/MC%2786/20200617_165206_vxtai9.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613580/MC%2786/IMG_20120929_072452_xkbr3u.jpg",
     ],
   },
 
@@ -86,9 +96,9 @@ const projectCategories = [
     description:
       "Fuel storage, transfer and infrastructure systems built with strict compliance, safety and operational continuity in mind.",
     images: [
-      "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1400&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=1400&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1400&auto=format&fit=crop",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779612802/MC%2786/8a6eba56ad854f9aa43c1ec75a09279a_iyxxb6.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614046/MC%2786/20221029_144828_iufkt9.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613582/MC%2786/IMG_20231206_144520_boacet.jpg",
     ],
   },
 ];
@@ -227,11 +237,6 @@ export default function Page() {
                       <p className="text-muted-foreground leading-relaxed text-sm sm:text-base mb-8">
                         {project.description}
                       </p>
-
-                      <div className="flex items-center gap-3 text-primary font-semibold">
-                        Explore Portfolio
-                        <ArrowRight className="h-4 w-4" />
-                      </div>
                     </div>
                   </ParallaxFade>
 

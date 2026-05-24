@@ -13,7 +13,8 @@ import Dotbox from "./ui/dotbox";
 const HERO_IMAGES = [
     "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779021963/MC%2786/9196f923-701a-46cb-97dd-6e627519daaa_rke7qj.png",
     "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941158/MC%2786/629f1d22-4695-4a98-bd59-f36fae0be57d_g5ozlm.png",
-    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941837/MC%2786/74637125-0b33-4fc8-87f8-47244072d60d_jkvkdu.png"
+    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941837/MC%2786/74637125-0b33-4fc8-87f8-47244072d60d_jkvkdu.png",
+    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779612705/MC%2786/2bc5d42f616a49118c4eb0f5afd92763_j34td0.jpg"
 ];
 
 const INTERVAL_MS = 5000;
@@ -386,7 +387,7 @@ export function HeroCarousel() {
       </motion.div>
 
       {/* ── Main hero area ── */}
-      <div className="relative z-20 w-full min-h-[82vh] flex items-center justify-center overflow-hidden">
+      <div className="relative z-20 w-full min-h-[82vh] flex items-center justify-center overflow-hidden bg-muted">
 
         <CarouselEngine
           images={HERO_IMAGES}
