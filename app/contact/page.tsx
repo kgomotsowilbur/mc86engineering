@@ -72,13 +72,30 @@ export default function Contact() {
 
   const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    // await base44.integrations.Core.SendEmail({ ... });
-    setSending(false);
-    setSent(true);
-    setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Send failed");
+      }
+
+      setSent(true);
+      setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Please try again or email us directly at info@mc86group.com");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
