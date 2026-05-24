@@ -1,6 +1,8 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Badge } from "../components/ui/badge";
 import LenisProvider from "../components/lenisprovider";
 import {
@@ -163,6 +165,75 @@ function ProjectsHero() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function Page() {
+  const [activeSection, setActiveSection] = useState("");
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const allImages = projectCategories.flatMap((project) =>
+  project.images.map((image, imageIndex) => ({
+    src: image,
+    projectTitle: project.title,
+    sectionId: project.title.toLowerCase().replace(/\s+/g, "-"),
+    localIndex: imageIndex,
+  }))
+);
+
+const openGallery = (
+  sectionId: string,
+  clickedImage: string
+) => {
+  const index = allImages.findIndex(
+    (img) => img.src === clickedImage
+  );
+
+  if (index !== -1) {
+    setActiveIndex(index);
+    setIsOpen(true);
+    setActiveSection(sectionId);
+  }
+};
+
+const closeGallery = () => {
+  setIsOpen(false);
+
+  setTimeout(() => {
+    const element = document.getElementById(activeSection);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, 100);
+};
+
+const nextImage = () => {
+  setActiveIndex((prev) =>
+    prev === allImages.length - 1 ? 0 : prev + 1
+  );
+};
+
+const prevImage = () => {
+  setActiveIndex((prev) =>
+    prev === 0 ? allImages.length - 1 : prev - 1
+  );
+};
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isOpen) return;
+
+      if (e.key === "Escape") closeGallery();
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "ArrowLeft") prevImage();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, allImages.length]);
+
   return (
     <LenisProvider>
       <div className="bg-background overflow-hidden">
@@ -233,10 +304,10 @@ export default function Page() {
                       <h2 className="text-4xl sm:text-5xl font-black leading-tight text-foreground mb-6">
                         {project.title}
                       </h2>
-
+                      {/* 
                       <p className="text-muted-foreground leading-relaxed text-sm sm:text-base mb-8">
                         {project.description}
-                      </p>
+                      </p> */}
                     </div>
                   </ParallaxFade>
 
@@ -246,7 +317,15 @@ export default function Page() {
                       {/* Large image */}
                       <ParallaxScale className="md:col-span-2">
                         <ParallaxFloat speed={0.08}>
-                          <div className="group relative overflow-hidden rounded-[2rem] border border-border/50 h-[420px] shadow-2xl">
+                          <div
+                            onClick={() =>
+                              openGallery(
+                                project.title.toLowerCase().replace(/\s+/g, "-"),
+                                project.images[0]
+                              )
+                            }
+                            className="group relative overflow-hidden rounded-[2rem] border border-border/50 h-[420px] shadow-2xl cursor-pointer"
+                          >
                             <img
                               src={project.images[0]}
                               alt={project.title}
@@ -270,7 +349,15 @@ export default function Page() {
                           speed={0.05 + imgIndex * 0.03}
                           key={imgIndex}
                         >
-                          <div className="group relative overflow-hidden rounded-[2rem] border border-border/50 h-[320px] shadow-xl">
+                          <div
+                            onClick={() =>
+                              openGallery(
+                                project.title.toLowerCase().replace(/\s+/g, "-"),
+                                image
+                              )
+                            }
+                            className="group relative overflow-hidden rounded-[2rem] border border-border/50 h-[320px] shadow-xl cursor-pointer"
+                          >
                             <img
                               src={image}
                               alt={project.title}
@@ -292,6 +379,70 @@ export default function Page() {
           </div>
         </section>
       </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-xl flex items-center justify-center"
+          >
+            {/* Close */}
+            <button
+              onClick={closeGallery}
+              className="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition"
+            >
+              <X className="w-6 h-6 text-white" />
+            </button>
+
+            {/* Previous */}
+            <button
+              onClick={prevImage}
+              className="absolute left-4 md:left-8 z-50 w-14 h-14 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition"
+            >
+              <ChevronLeft className="w-8 h-8 text-white" />
+            </button>
+
+            {/* Next */}
+            <button
+              onClick={nextImage}
+              className="absolute right-4 md:right-8 z-50 w-14 h-14 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition"
+            >
+              <ChevronRight className="w-8 h-8 text-white" />
+            </button>
+
+            {/* Image */}
+            <motion.img
+              key={allImages[activeIndex]?.src}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.25 }}
+              src={allImages[activeIndex]?.src}
+              alt="Project image"
+              className="max-w-[95vw] max-h-[90vh] object-contain rounded-2xl shadow-2xl"
+            />
+
+            <div className="absolute top-6 left-6">
+              <div className="px-5 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10">
+                <p className="text-white text-sm uppercase tracking-widest opacity-70">
+                  Project Category
+                </p>
+
+                <h3 className="text-white font-bold text-xl">
+                  {allImages[activeIndex]?.projectTitle}
+                </h3>
+              </div>
+            </div>
+
+            {/* Counter */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-white/10 text-white text-sm backdrop-blur-md">
+              {activeIndex + 1} / {allImages.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </LenisProvider>
   );
 }
