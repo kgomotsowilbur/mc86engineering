@@ -119,7 +119,7 @@ export default function Home() {
                   Who are <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">we</span>
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-6 text-sm">
-                  MC'86 Engineering &amp; Construction has been providing high quality services for the past five years as a multi-discipline engineering and construction turnkey entity which specializes in engineering, procurement, fabrication, installation, commissioning, maintenance and project management of any steelworks (Structural Steel, Mezzanine and Piping) from our specialized division.
+                  We have been providing high quality services for the past five years as a multi-discipline engineering and construction turnkey entity which specializes in engineering, procurement, fabrication, installation, commissioning, maintenance and project management of any steelworks (Structural Steel, Mezzanine and Piping) from our specialized division.
                 </p>
                 <Link href="/about">
                   <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
@@ -144,28 +144,17 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
             {[
               {
-                title: "Civil Works",
-                image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779612705/MC%2786/2bc5d42f616a49118c4eb0f5afd92763_j34td0.jpg",
-                icon: Building2,
-                into: 
-                  "Heavy-duty civil construction and infrastructure development built for industrial performance, reliability and durability.",
+                title: "Structural Steel",
+                image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779621210/MC%2786/WhatsApp_Image_2026-05-22_at_15.37.40_cvf4l2.jpg",
+                icon: Warehouse,
+                number: "04",
+                intro:
+                  "Precision steel fabrication for industrial plants and heavy-duty structures.",
                 features: [
-                  "Concrete & structural foundations",
-                  "Earthworks & site preparation",
-                  "Drainage & infrastructure systems",
-                ]
-              },
-              {
-                title: "Eletrical Works",
-                image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614025/MC%2786/IMG_20260505_113037_hhejtr.jpg",
-                icon: Zap,
-                into: 
-                  "Reliable electrical installations and power systems tailored for industrial, commercial and residential applications with a strong focus on safety and efficiency.",
-                features: [
-                  "Electrical installations for industrial, commercial & residential projects",
-                  "Maintenance, fault finding & compliance testing",
-                  "Lighting systems and automation solutions",
-                ]
+                  "Steel frameworks & pipe racks",
+                  "Gantries & support structures",
+                  "Modular skids & platforms",
+                ],
               },
               {
                 title: "Piping Systems",
@@ -191,19 +180,29 @@ export default function Home() {
                   "Protective coatings & repairs",
                 ],
               },
-
               {
-                title: "Structural Steel",
-                image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779621210/MC%2786/WhatsApp_Image_2026-05-22_at_15.37.40_cvf4l2.jpg",
-                icon: Warehouse,
-                number: "04",
-                intro:
-                  "Precision steel fabrication for industrial plants and heavy-duty structures.",
+                title: "Civil Works",
+                image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779612705/MC%2786/2bc5d42f616a49118c4eb0f5afd92763_j34td0.jpg",
+                icon: Building2,
+                into: 
+                  "Heavy-duty civil construction and infrastructure development built for industrial performance, reliability and durability.",
                 features: [
-                  "Steel frameworks & pipe racks",
-                  "Gantries & support structures",
-                  "Modular skids & platforms",
-                ],
+                  "Concrete & structural foundations",
+                  "Earthworks & site preparation",
+                  "Drainage & infrastructure systems",
+                ]
+              },
+              {
+                title: "Eletrical Works",
+                image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614025/MC%2786/IMG_20260505_113037_hhejtr.jpg",
+                icon: Zap,
+                into: 
+                  "Reliable electrical installations and power systems tailored for industrial, commercial and residential applications with a strong focus on safety and efficiency.",
+                features: [
+                  "Electrical installations for industrial, commercial & residential projects",
+                  "Maintenance, fault finding & compliance testing",
+                  "Lighting systems and automation solutions",
+                ]
               },
 
               {

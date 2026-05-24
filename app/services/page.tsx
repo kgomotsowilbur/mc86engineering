@@ -104,30 +104,18 @@ export default function Services() {
             <div className="space-y-10">
               {[
                 {
-                  title: "Civil Works",
+                  title: "Structural Steel",
                   image:
-                    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779612705/MC%2786/2bc5d42f616a49118c4eb0f5afd92763_j34td0.jpg",
+                    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613580/MC%2786/IMG_20120929_072452_xkbr3u.jpg",
                   description:
-                    "Comprehensive civil construction solutions supporting industrial infrastructure, heavy-duty foundations, concrete structures, drainage systems, and site development projects.",
+                    "Precision structural steel fabrication and installation services for industrial plants, process facilities, conveyor systems, platforms, and complex steel structures.",
                   features: [
-                    "Industrial foundations & concrete works",
-                    "Site preparation & earthworks",
-                    "Drainage & infrastructure systems",
-                    "Structural support installations",
-                    "Project execution & site management",
+                    "Plant structures & steel frameworks",
+                    "Pipe racks, gantries & platforms",
+                    "Conveyor support structures",
+                    "Mezzanine floors & modular skids",
+                    "On-site fabrication & commissioning",
                   ],
-                },
-                { title: "Electrical Works", 
-                  image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614585/MC%2786/IMG_20260505_113426_gjm9zg.jpg", 
-                  description:
-                    "Reliable electrical installations, maintenance and industrial power solutions engineered for safety, efficiency and long-term performance.",
-                  features: [
-                    "Electrical maintenance and installations",
-                    "Commercial, retail and domestic electrical solutions",
-                    "Compliance testing and inspection reports",
-                    "Lighting, sockets and automation services",
-                    "24-hour emergency electrical support",
-                  ]
                 },
                 {
                   title: "Piping Systems",
@@ -158,18 +146,30 @@ export default function Services() {
                   ],
                 },
                 {
-                  title: "Structural Steel",
+                  title: "Civil Works",
                   image:
-                    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613580/MC%2786/IMG_20120929_072452_xkbr3u.jpg",
+                    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779612705/MC%2786/2bc5d42f616a49118c4eb0f5afd92763_j34td0.jpg",
                   description:
-                    "Precision structural steel fabrication and installation services for industrial plants, process facilities, conveyor systems, platforms, and complex steel structures.",
+                    "Comprehensive civil construction solutions supporting industrial infrastructure, heavy-duty foundations, concrete structures, drainage systems, and site development projects.",
                   features: [
-                    "Plant structures & steel frameworks",
-                    "Pipe racks, gantries & platforms",
-                    "Conveyor support structures",
-                    "Mezzanine floors & modular skids",
-                    "On-site fabrication & commissioning",
+                    "Industrial foundations & concrete works",
+                    "Site preparation & earthworks",
+                    "Drainage & infrastructure systems",
+                    "Structural support installations",
+                    "Project execution & site management",
                   ],
+                },
+                { title: "Electrical Works", 
+                  image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614585/MC%2786/IMG_20260505_113426_gjm9zg.jpg", 
+                  description:
+                    "Reliable electrical installations, maintenance and industrial power solutions engineered for safety, efficiency and long-term performance.",
+                  features: [
+                    "Electrical maintenance and installations",
+                    "Commercial, retail and domestic electrical solutions",
+                    "Compliance testing and inspection reports",
+                    "Lighting, sockets and automation services",
+                    "24-hour emergency electrical support",
+                  ]
                 },
                 {
                   title: "Fuel Infrastructure",

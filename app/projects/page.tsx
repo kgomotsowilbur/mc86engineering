@@ -27,31 +27,17 @@ import {
 
 const projectCategories = [
   {
-    title: "Civil Works",
-    icon: Building2,
-    accent: "from-primary to-accent",
-    description:
-      "Heavy-duty infrastructure construction, industrial foundations and concrete engineering built for longevity and structural performance.",
-    images: [
-      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614628/MC%2786/IMG_20260516_103657_ecb4a6.jpg",
-      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614411/MC%2786/DSC_9730_c5xela.jpg",
-      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614623/MC%2786/IMG_20240226_111055_xy4cjp.jpg",
-    ],
-  },
-
-  {
-    title: "Eletrical Works",
-    icon: Zap,
+    title: "Structural Steel",
+    icon: ShieldCheck,
     accent: "from-accent to-primary",
     description:
-      "Reliable electrical installations, maintenance and industrial power solutions engineered for safety, efficiency and long-term performance.",
+      "Engineered steel structures fabricated and installed to withstand the most demanding industrial and commercial applications.",
     images: [
-      "https://res.cloudinary.com/dk7dsm0lc/image/upload/c_crop,w_3072,h_2304,x_0,y_270,ar_4:3/f_auto,q_auto,w_1400/v1779614025/MC%2786/IMG_20260505_113037_hhejtr.jpg",
-      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779612703/MC%2786/20211111_133409_kmorvo.jpg",
-      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614936/MC%2786/DSC_0510_xqfwf9.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613854/MC%2786/20120907_090233_lgckqp.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614234/MC%2786/20200617_165206_vxtai9.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613580/MC%2786/IMG_20120929_072452_xkbr3u.jpg",
     ],
   },
-
   {
     title: "Piping Systems",
     icon: Pipette,
@@ -64,7 +50,6 @@ const projectCategories = [
       "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613971/MC%2786/IMG_20260505_105431_oj2qqv.jpg",
     ],
   },
-
   {
     title: "Tank Fabrication",
     icon: Factory,
@@ -77,20 +62,30 @@ const projectCategories = [
       "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614462/MC%2786/IMG_20120626_115006_qcvrqw.jpg",
     ],
   },
-
   {
-    title: "Structural Steel",
-    icon: ShieldCheck,
-    accent: "from-accent to-primary",
+    title: "Civil Works",
+    icon: Building2,
+    accent: "from-primary to-accent",
     description:
-      "Engineered steel structures fabricated and installed to withstand the most demanding industrial and commercial applications.",
+      "Heavy-duty infrastructure construction, industrial foundations and concrete engineering built for longevity and structural performance.",
     images: [
-      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613854/MC%2786/20120907_090233_lgckqp.jpg",
-      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614234/MC%2786/20200617_165206_vxtai9.jpg",
-      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613580/MC%2786/IMG_20120929_072452_xkbr3u.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614628/MC%2786/IMG_20260516_103657_ecb4a6.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614411/MC%2786/DSC_9730_c5xela.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614623/MC%2786/IMG_20240226_111055_xy4cjp.jpg",
     ],
   },
-
+  {
+    title: "Eletrical Works",
+    icon: Zap,
+    accent: "from-accent to-primary",
+    description:
+      "Reliable electrical installations, maintenance and industrial power solutions engineered for safety, efficiency and long-term performance.",
+    images: [
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/c_crop,w_3072,h_2304,x_0,y_270,ar_4:3/f_auto,q_auto,w_1400/v1779614025/MC%2786/IMG_20260505_113037_hhejtr.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779612703/MC%2786/20211111_133409_kmorvo.jpg",
+      "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614936/MC%2786/DSC_0510_xqfwf9.jpg",
+    ],
+  },
   {
     title: "Fuel Infrastructure",
     icon: Fuel,

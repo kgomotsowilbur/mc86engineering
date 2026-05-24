@@ -64,57 +64,11 @@ function AboutHero() {
 }
 
 // ─── Data ────────────────────────────────────────────────────────────────────
-const stats = [
-  { icon: Clock, label: "Years of Experience", value: "5+" },
-  { icon: Users, label: "Satisfied Clients", value: "24+" },
-  { icon: Award, label: "Projects Completed", value: "100+" },
-  { icon: Target, label: "Divisions", value: "3" },
-];
-
 const values = [
   { title: "Quality First", description: "We are committed to delivering the highest quality engineering and construction solutions to every client." },
   { title: "Innovation", description: "We continuously seek innovative approaches to optimize projects for cost efficiency and performance." },
   { title: "Integrity", description: "We maintain transparency and honesty in every interaction with our clients, partners, and communities." },
   { title: "Safety", description: "Safety is paramount on every project site. We adhere to the strictest safety standards and protocols." },
-];
-
-const companyInfo = [
-  {
-    icon: Eye,
-    title: "Vision",
-    description:
-      "To provide excellent project deliverables and downtime services that exceeds the expectations of our esteemed clients.",
-  },
-  {
-    icon: Target,
-    title: "Mission",
-    description:
-      "To establish and maintain lifetime relationships with our clients and provide exceptional customer services through fully integrated expertise, modern project approaches and advanced maintenance techniques.",
-  },
-  {
-    icon: CheckCircle,
-    title: "Core Values",
-    description:
-      "We believe in satisfying our clients with respect and trust. We grow through creativity, invention and innovation. We integrate honesty, integrity and business ethics into all aspects of our business functioning.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Health & Safety",
-    description:
-      "We adhere to all HSSE (OHS Act.) and internal safety programs. Daily job hazard analysis and toolbox talks are conducted while all staff are trained to prioritize safety before beginning any task.",
-  },
-  {
-    icon: Award,
-    title: "Quality Statement",
-    description:
-      "MC'86 Engineering & Construction is committed to delivering dependable engineering, fabrication and construction solutions with uncompromised quality, safety, efficiency and client satisfaction.",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Affiliations",
-    description:
-      "CIDB Registered • ISO Compliant Processes",
-  },
 ];
 
 // ─── Page ────────────────────────────────────────────────────────────────────
@@ -244,22 +198,6 @@ export default function Page() {
                   </div>
                 </div>
 
-                {/* Affiliations */}
-                <div className="group relative overflow-hidden rounded-3xl border border-border/50 bg-card/90 backdrop-blur-sm p-7 shadow-md">
-                  <div className="flex items-start gap-6 md:block">
-                    <div className="relative z-10 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-0 md:mb-6 shrink-0">
-                      <BadgeCheck className="h-7 w-7 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-foreground mb-4">Affiliations</h3>
-                      <div className="space-y-2 text-muted-foreground text-sm">
-                        <p>CIDB Registered</p>
-                        <p>ISO Compliant Processes</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Mission */}
                 <div className="group relative overflow-hidden rounded-3xl border border-border/50 bg-card/90 backdrop-blur-sm p-7 shadow-md">
                   <div className="flex items-start gap-6 md:block">
@@ -292,6 +230,22 @@ export default function Page() {
                         honesty, integrity and business ethics into all aspects of our
                         business functioning.
                       </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Affiliations */}
+                <div className="group relative overflow-hidden rounded-3xl border border-border/50 bg-card/90 backdrop-blur-sm p-7 shadow-md">
+                  <div className="flex items-start gap-6 md:block">
+                    <div className="relative z-10 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-0 md:mb-6 shrink-0">
+                      <BadgeCheck className="h-7 w-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground mb-4">Affiliations</h3>
+                      <div className="space-y-2 text-muted-foreground text-sm">
+                        <p>CIDB Registered</p>
+                        <p>ISO Compliant Processes</p>
+                      </div>
                     </div>
                   </div>
                 </div>
