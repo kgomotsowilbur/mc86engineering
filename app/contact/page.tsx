@@ -72,20 +72,37 @@ export default function Contact() {
 
   const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    // await base44.integrations.Core.SendEmail({ ... });
-    setSending(false);
-    setSent(true);
-    setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Send failed");
+      }
+
+      setSent(true);
+      setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Please try again or email us directly at info@mc86group.com");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
     <LenisProvider>
       <div
         style={{
-          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779021963/9196f923-701a-46cb-97dd-6e627519daaa_rke7qj.png)`,
+          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779021963/MC%2786/9196f923-701a-46cb-97dd-6e627519daaa_rke7qj.png)`,
           backgroundAttachment: "fixed",   // native CSS parallax for the outer BG
           backgroundSize: "cover",
           backgroundPosition: "center",

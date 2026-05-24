@@ -12,6 +12,7 @@ import {
   ParallaxScale,
   ParallaxScrub,
 } from "../components/parallax";
+import Image from "next/image";
 
 // ─── Hero ────────────────────────────────────────────────────────────────────
 function ServicesHero() {
@@ -50,23 +51,13 @@ function ServicesHero() {
   );
 }
 
-// ─── Data ────────────────────────────────────────────────────────────────────
-const services = [
-  { title: "FUEL SYSTEMS - PUMP AND TANK", image_url: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/412bcbca5_mc86group_com_1_e4a11c91.png", items: "New Aboveground/Underground tank installation|Tank removal for both ASTs and USTs|Tank Farm civil works|Replacement of STPs|UST and AST inspection and maintenance|Forecourt equipment|Tank Manhole repairs, modification and installation|Tank sump|Tank Farm and Forecourt Surfacing|Installation of Fuel dispensers and dispenser pumps|Building or modifying forecourt islands" },
-  { title: "CIVIL WORKS", image_url: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/42fffa9fd_mc86group_com_2_bf1e82cb.png", items: "Excavation and Embankment filling works - Construction of box culverts|Construction of Pipe culverts|Concrete lining works for storm water drainage|Water line protection works|Sewage line protection works|Laying of drainage layer like GSB and ABC|Cold/Hot Asphalt road works|Electrical trenching and pole installation works|Precast works|Sewage manhole works|Casting of Pipeline sleepers" },
-  { title: "GENERAL BUILDING & SURFACING", image_url: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/aa74970fa_mc86group_com_3_524014d3.png", items: "Maintenance and renovation of sales buildings|Construction and extension of sales buildings|Demolition of sales building|Tiling of building interiors and exteriors|Plastering and painting|Installation of forecourt crush barriers|Installation of ceiling structures|Hot or cold water plumbing works" },
-  { title: "ELECTRICAL WORKS", image_url: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/e71d2acab_mc86group_com_4_630557ed.png", items: "Electrical maintenance|Electrical installations to the domestic market, retail sector and construction industry|Compliance testing|Lighting Services|Commercial installations|Additional sockets and lighting points|Periodic inspection & test reports|Electrical fence and gate automation|24 hour emergency service" },
-  { title: "HVAC & REFRIGERATION", image_url: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/1a044c296_mc86group_com_5_58889b78.png", items: "New Air Condition Installation and Maintenance|Refrigeration Maintenance - Mobile, Walk-ins, Underbars, Huskys or Chest Freezers|Food Services Equipment Maintenance|Ventilation or Extraction Fans|Split Air Condition Units|Cassette Air Condition Units|Ducted Air Condition Units" },
-  { title: "ENGINEERING DESIGN & CONSULTING", image_url: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/82dc8ad9b_mc86group_com_6_98b1594d.png", items: "Technical Studies|Concept designs|Draughting and Technical Drawings|Wet Services designs and studies|HVAC and Refrigeration|Electrical designs and Load calculations|Project cost estimation|Structural designs and integrity studies|Enterprise Asset Management consulting" },
-];
-
 // ─── Page ────────────────────────────────────────────────────────────────────
 export default function Services() {
   return (
     <LenisProvider>
       <div
         style={{
-          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778977970/95c9bdb1-5c55-49cf-a2e6-8c1790516fa6_lqe9xy.png)`,
+          backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778977970/MC%2786/95c9bdb1-5c55-49cf-a2e6-8c1790516fa6_lqe9xy.png)`,
           backgroundAttachment: "fixed",   // native CSS parallax for the outer BG
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -76,44 +67,181 @@ export default function Services() {
         {/* ── Hero ── */}
         <ServicesHero />
 
-        {/* ── Service Cards ── */}
-        <section className="py-20 bg-muted overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6">
+        {/* ── Premium Services Section ── */}
+        <section className="relative py-28 overflow-hidden bg-background">
+          {/* Background Effects */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/10 blur-3xl rounded-full" />
+            <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/10 blur-3xl rounded-full" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
+          </div>
+
+          <div className="relative max-w-7xl mx-auto px-6">
+            {/* Heading */}
             <ParallaxFade>
-              <div className="text-center mb-14">
-                <Badge className="mb-3 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1">Full Scope</Badge>
-                <h2 className="text-3xl font-bold text-foreground mb-2">
-                  A List of Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Services</span>
+              <div className="text-center mb-20">
+                <Badge className="mb-4 bg-primary/10 text-primary border border-primary/20 px-4 py-1 tracking-[0.2em] uppercase text-xs">
+                  Engineering Excellence
+                </Badge>
+
+                <h2 className="text-4xl md:text-6xl font-black leading-tight tracking-tight text-foreground">
+                  Industrial Solutions <br />
+                  <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                    Built For Performance
+                  </span>
                 </h2>
+
+                <p className="max-w-3xl mx-auto mt-6 text-muted-foreground text-base md:text-lg leading-relaxed">
+                  MC86 Engineering & Construction delivers integrated SMPP solutions
+                  across industrial, mining, petrochemical, water infrastructure and
+                  energy sectors — combining engineering precision, fabrication
+                  expertise, and turnkey project execution.
+                </p>
               </div>
             </ParallaxFade>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service, index) => (
+            {/* Services */}
+            <div className="space-y-10">
+              {[
+                {
+                  title: "Civil Works",
+                  image:
+                    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779612705/MC%2786/2bc5d42f616a49118c4eb0f5afd92763_j34td0.jpg",
+                  description:
+                    "Comprehensive civil construction solutions supporting industrial infrastructure, heavy-duty foundations, concrete structures, drainage systems, and site development projects.",
+                  features: [
+                    "Industrial foundations & concrete works",
+                    "Site preparation & earthworks",
+                    "Drainage & infrastructure systems",
+                    "Structural support installations",
+                    "Project execution & site management",
+                  ],
+                },
+                { title: "Electrical Works", 
+                  image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614585/MC%2786/IMG_20260505_113426_gjm9zg.jpg", 
+                  description:
+                    "Reliable electrical installations, maintenance and industrial power solutions engineered for safety, efficiency and long-term performance.",
+                  features: [
+                    "Electrical maintenance and installations",
+                    "Commercial, retail and domestic electrical solutions",
+                    "Compliance testing and inspection reports",
+                    "Lighting, sockets and automation services",
+                    "24-hour emergency electrical support",
+                  ]
+                },
+                {
+                  title: "Piping Systems",
+                  image:
+                    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613805/MC%2786/IMG-20250122-WA0000_mtx9bp.jpg",
+                  description:
+                    "Specialized fabrication, spooling, installation, and commissioning of industrial piping systems designed for high-performance operations in petrochemical, mining, water, and energy sectors.",
+                  features: [
+                    "High pressure & high temperature piping",
+                    "Steam, slurry & chemical pipe systems",
+                    "Carbon steel, stainless steel & HDPE piping",
+                    "Valve, vessel & instrumentation integration",
+                    "Shutdown tie-ins & live-site installations",
+                  ],
+                },
+                {
+                  title: "Tank Fabrication",
+                  image:
+                    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613806/MC%2786/IMG-20201022-WA0018_ixs79m.jpg",
+                  description:
+                    "Design, fabrication, installation, and maintenance of industrial storage tanks and vessels built to SANS standards for oil, fuel, chemical, and water storage applications.",
+                  features: [
+                    "Fuel, chemical & water storage tanks",
+                    "On-site tank construction & assembly",
+                    "Tank repairs, patching & re-lining",
+                    "Heavy lift placement coordination",
+                    "Protective coatings & insulation support",
+                  ],
+                },
+                {
+                  title: "Structural Steel",
+                  image:
+                    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613580/MC%2786/IMG_20120929_072452_xkbr3u.jpg",
+                  description:
+                    "Precision structural steel fabrication and installation services for industrial plants, process facilities, conveyor systems, platforms, and complex steel structures.",
+                  features: [
+                    "Plant structures & steel frameworks",
+                    "Pipe racks, gantries & platforms",
+                    "Conveyor support structures",
+                    "Mezzanine floors & modular skids",
+                    "On-site fabrication & commissioning",
+                  ],
+                },
+                {
+                  title: "Fuel Infrastructure",
+                  image:
+                    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614974/MC%2786/20210803_122519_xlje70.jpg",
+                  description:
+                    "End-to-end fuel infrastructure solutions including piping networks, storage systems, structural installations, and integrated mechanical support for fuel handling facilities.",
+                  features: [
+                    "Fuel transfer piping systems",
+                    "Bulk fuel storage solutions",
+                    "Pump & equipment installations",
+                    "Integrated steel support structures",
+                    "Maintenance & operational upgrades",
+                  ],
+                },
+              ].map((service, index) => (
                 <ParallaxScale key={service.title}>
-                  <div className="group bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 flex flex-col h-full">
-                    {/* Image with inner parallax */}
-                    <div className="aspect-[16/9] overflow-hidden bg-muted relative">
-                      <ParallaxLayer speed={0.1} className="h-full w-full absolute inset-0">
+                  <div
+                    className={`group relative grid lg:grid-cols-2 gap-0 overflow-hidden rounded-[32px] border border-border/50 bg-card/70 backdrop-blur-xl shadow-[0_10px_50px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_80px_rgba(0,0,0,0.25)] transition-all duration-700 ${
+                      index % 2 !== 0 ? "lg:grid-flow-col-dense" : ""
+                    }`}
+                  >
+                    {/* Image Side */}
+                    <div
+                      className={`relative min-h-[420px] overflow-hidden ${
+                        index % 2 !== 0 ? "lg:col-start-2" : ""
+                      }`}
+                    >
+                      <ParallaxLayer
+                        speed={0.12}
+                        className="absolute inset-0"
+                        style={{ height: '100%', width: '100%' }}
+                      >
                         <img
-                          src={service.image_url}
+                          src={service.image}
                           alt={service.title}
-                          className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          style={{ height: "120%", marginTop: "-10%" }}
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                         />
                       </ParallaxLayer>
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                      {/* Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
                     </div>
-                    <div className="p-6 flex flex-col flex-1">
-                      <h3 className="text-sm font-bold text-foreground uppercase tracking-wider mb-4 pb-3 border-b border-border">{service.title}</h3>
-                      <ul className="space-y-2 flex-1">
-                        {service.items.split("|").map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-                            <CheckCircle className="h-3 w-3 text-primary mt-0.5 flex-shrink-0" />
-                            <span>{item.trim()}</span>
-                          </li>
+
+                    {/* Content Side */}
+                    <div className="relative p-10 lg:p-14 flex flex-col justify-center">
+                      <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 blur-3xl rounded-full" />
+
+                      <h3 className="text-3xl md:text-4xl font-black text-foreground mb-5 relative z-10">
+                        {service.title}
+                      </h3>
+
+                      <p className="text-muted-foreground leading-relaxed text-base md:text-lg mb-8 relative z-10">
+                        {service.description}
+                      </p>
+
+                      <div className="grid sm:grid-cols-2 gap-4 relative z-10">
+                        {service.features.map((feature, i) => (
+                          <div
+                            key={i}
+                            className="flex items-start gap-3 rounded-2xl border border-border/60 bg-background/60 backdrop-blur-sm p-4 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+                          >
+                            <div className="mt-1">
+                              <CheckCircle className="h-5 w-5 text-primary" />
+                            </div>
+
+                            <span className="text-sm leading-relaxed text-foreground">
+                              {feature}
+                            </span>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   </div>
                 </ParallaxScale>

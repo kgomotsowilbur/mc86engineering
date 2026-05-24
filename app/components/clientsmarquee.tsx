@@ -11,19 +11,13 @@ const clientLogos = [
   { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/482928850_mc86group_com_kwenta-145x75_209e6a4d.png", alt: "Kwenta Group" },
   { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/4821f2ee7_mc86group_com_pump-145x75_61b6d4ef.png", alt: "Pumpquip" },
   { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/c08743899_mc86group_com_masinga-145x75_0f4c96d7.png", alt: "Masingi" },
-  { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/8500bd9e1_mc86group_com_fau-145x75_d7eb72ae.png", alt: "Faurecia" },
-  { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/9a36235dd_mc86group_com_poly-145x75_0e6f35fe.png", alt: "Poly" },
   { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/0113b0b41_mc86group_com_redb-145x75_1ff3e6ac.png", alt: "Redbrick" },
-  { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/2b86a5dea_mc86group_com_client_2-145x75_ea15d363.png", alt: "AECOM" },
-  { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/cc969453e_mc86group_com_sappi-145x75_25faddd4.png", alt: "Sappi" },
-  { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/cf4243773_mc86group_com_cidb-145x75_db54147e.png", alt: "CIDB" },
-  { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/ead1cb48c_mc86group_com_coeng-145x75_d07d356f.png", alt: "COENG" },
-  { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/a71e74af1_mc86group_com_dcb-145x75_14b891ef.png", alt: "DCB" },
-  { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/2facfdd64_mc86group_com_ekur-145x75_03c0f7fa.png", alt: "Ekur" },
-  { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/85822f4f0_mc86group_com_joburg-145x75_531d8de9.png", alt: "Joburg" },
-  { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/fa77ffede_mc86group_com_lawrence-145x75_503df294.png", alt: "Lawrence" },
-  { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/7027c4e2e_mc86group_com_noto-145x75_0e6629f2.png", alt: "Noto" },
-  { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/2ef8fd5c4_mc86group_com_exce-145x75_32aee998.png", alt: "Excellerate" },
+  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525129/images_crrldo.png", alt: "CBRE Excellerate"},
+  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525128/samancor-logo-png_seeklogo-171246_jdrewf.png", alt: "samancor"},
+  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525128/pragma_logo_rlxtbj.jpg", alt: "pragma"},
+  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525129/SERITI-Logo-RGB_jmrncy.png", alt: "seriti"},
+  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525129/Heineken_sfljjd.png", alt: "heineken"},
+  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525130/Department_of_Water_and_Sanitation_logo.svg_vmwfou.png", alt: "water and sanitation"}
 ];
 
 export default function ClientsMarquee() {

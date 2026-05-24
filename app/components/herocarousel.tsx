@@ -11,9 +11,10 @@ import Dotbox from "./ui/dotbox";
 // ─── Images ───────────────────────────────────────────────────────────────────
 
 const HERO_IMAGES = [
-    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779021963/9196f923-701a-46cb-97dd-6e627519daaa_rke7qj.png",
-    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941158/629f1d22-4695-4a98-bd59-f36fae0be57d_g5ozlm.png",
-    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941837/74637125-0b33-4fc8-87f8-47244072d60d_jkvkdu.png"
+    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779021963/MC%2786/9196f923-701a-46cb-97dd-6e627519daaa_rke7qj.png",
+    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941158/MC%2786/629f1d22-4695-4a98-bd59-f36fae0be57d_g5ozlm.png",
+    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778941837/MC%2786/74637125-0b33-4fc8-87f8-47244072d60d_jkvkdu.png",
+    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779612705/MC%2786/2bc5d42f616a49118c4eb0f5afd92763_j34td0.jpg"
 ];
 
 const INTERVAL_MS = 5000;
@@ -386,7 +387,7 @@ export function HeroCarousel() {
       </motion.div>
 
       {/* ── Main hero area ── */}
-      <div className="relative z-20 w-full min-h-[82vh] flex items-center justify-center overflow-hidden">
+      <div className="relative z-20 w-full min-h-[82vh] flex items-center justify-center overflow-hidden bg-muted">
 
         <CarouselEngine
           images={HERO_IMAGES}
@@ -395,7 +396,7 @@ export function HeroCarousel() {
         />
 
         {/* Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/0 via-primary/20 to-primary/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/0 via-primary/40 to-primary/75" />
 
         {/* Content */}
         <motion.div
@@ -407,13 +408,15 @@ export function HeroCarousel() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
           >
-            <Badge className="mb-5 bg-accent text-primary-foreground text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">
-              MC&apos;86 GROUP
-            </Badge>
-
-            <h1 className="text-xl sm:text-3xl md:text-4xl font-bold text-primary-foreground leading-tight tracking-tight mb-5">
+            <h1 className="flex flex-col text-xl sm:text-3xl md:text-4xl font-bold text-primary-foreground leading-tight tracking-tight mb-5">
               <span
                 className="text-4xl sm:text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-accent via-primary-foreground to-accent bg-clip-text text-transparent"
+                style={{ backgroundSize: "200%", animation: "gradient-x 4s ease infinite" }}
+              >
+                MC&apos;86
+              </span>
+              <span
+                className="text-4xl sm:text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-accent via-primary-foreground to-accent bg-clip-text text-transparent pb-2"
                 style={{ backgroundSize: "200%", animation: "gradient-x 4s ease infinite" }}
               >
                 Engineering &amp; Construction
