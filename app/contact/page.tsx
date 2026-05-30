@@ -16,6 +16,7 @@ import {
   ParallaxScrub,
 } from "../components/parallax";
 import MapEmbed from "../components/mapembed";
+import DotPattern from "../components/ui/dot-pattern";
 
 // ─── Hero ────────────────────────────────────────────────────────────────────
 function ContactHero() {
@@ -30,6 +31,34 @@ function ContactHero() {
       <motion.div style={{ y: bgY }} className="absolute inset-0 w-full h-[130%] -top-[15%]">
         <div className="absolute inset-0 bg-gradient-to-tl from-primary via-primary to-primary/60" />
       </motion.div>
+
+      {/* Hero dots — bottom-left diagonal, scrubbed via hero scroll */}
+      <div className="absolute left-8 bottom-6 z-10 hidden lg:block">
+        <DotPattern
+          columns={5}
+          rows={9}
+          gap={18}
+          dotSize={7}
+          opacity={1}
+          direction="diagonal-right"
+          animated={true}
+          scrollProgress={scrollYProgress}
+        />
+      </div>
+
+      {/* Hero dots — top-right, soft rotated cluster */}
+      <div className="absolute right-10 top-8 z-10 hidden lg:block -rotate-6">
+        <DotPattern
+          columns={4}
+          rows={6}
+          gap={16}
+          dotSize={6}
+          opacity={1}
+          direction="diagonal-left"
+          animated={true}
+          scrollProgress={scrollYProgress}
+        />
+      </div>
 
       {/* Floating accent blobs */}
       <ParallaxScrub speedX={0.18} speedY={-0.06} className="absolute top-0 right-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
@@ -75,19 +104,16 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-
       if (!res.ok) {
         const data = await res.json();
         throw new Error(data.error || "Send failed");
       }
-
       setSent(true);
       setForm({ name: "", email: "", phone: "", subject: "", message: "" });
     } catch (err) {
@@ -103,7 +129,7 @@ export default function Contact() {
       <div
         style={{
           backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779021963/MC%2786/9196f923-701a-46cb-97dd-6e627519daaa_rke7qj.png)`,
-          backgroundAttachment: "fixed",   // native CSS parallax for the outer BG
+          backgroundAttachment: "fixed",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -113,11 +139,11 @@ export default function Contact() {
         <ContactHero />
 
         {/* ── Contact Info + Form ── */}
-        <section className="py-20 bg-muted overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="relative py-20 bg-muted overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-              {/* Left: Contact cards with staggered float */}
+              {/* Left: Contact cards */}
               <ParallaxFade>
                 <div>
                   <Badge className="mb-3 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1">Contact Details</Badge>
@@ -127,10 +153,21 @@ export default function Contact() {
                   <p className="text-muted-foreground text-sm leading-relaxed mb-8">
                     Our team is ready to assist you with any engineering or construction enquiry. Reach out via phone, email, or fill in the form and we'll get back to you promptly.
                   </p>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {contactInfo.map((item, i) => (
                       <ParallaxFloat key={item.label} speed={0.05 + i * 0.03}>
-                        <div className="bg-card border border-border rounded-xl p-5 flex items-start gap-4 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                        <div className="relative bg-card border border-border rounded-xl p-5 flex items-start gap-4 hover:shadow-md hover:-translate-y-1 transition-all duration-300 h-full overflow-hidden">
+                          {/* Micro dot cluster in corner of each card */}
+                          <div className="absolute top-3 right-3 opacity-15">
+                            <DotPattern
+                              columns={3}
+                              rows={2}
+                              gap={8}
+                              dotSize={3}
+                              animated={false}
+                            />
+                          </div>
                           <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                             <item.icon className="h-5 w-5 text-primary" />
                           </div>
@@ -148,15 +185,40 @@ export default function Contact() {
                       </ParallaxFloat>
                     ))}
                   </div>
+
+                  {/* Decorative dot row below the cards */}
+                  <div className="mt-8">
+                    <DotPattern
+                      columns={8}
+                      rows={3}
+                      gap={14}
+                      dotSize={5}
+                      direction="horizontal"
+                      animated={true}
+                    />
+                  </div>
                 </div>
               </ParallaxFade>
 
-              {/* Right: Form with scale-in */}
+              {/* Right: Form */}
               <ParallaxScale>
-                <div className="bg-card border border-border rounded-2xl p-8 shadow-sm">
-                  <h3 className="text-xl font-bold text-foreground mb-6">Send Us a Message</h3>
+                <div className="relative bg-card border border-border rounded-2xl p-8 shadow-sm overflow-hidden">
+                  {/* Corner dot cluster on the form card */}
+                  <div className="absolute top-5 right-5 opacity-10">
+                    <DotPattern
+                      columns={4}
+                      rows={5}
+                      gap={12}
+                      dotSize={4}
+                      direction="diagonal-right"
+                      animated={true}
+                    />
+                  </div>
+
+                  <h3 className="text-xl font-bold text-foreground mb-6 relative z-10">Send Us a Message</h3>
+
                   {sent ? (
-                    <div className="text-center py-12">
+                    <div className="text-center py-12 relative z-10">
                       <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                         <Send className="h-8 w-8 text-primary" />
                       </div>
@@ -165,7 +227,7 @@ export default function Contact() {
                       <Button variant="outline" onClick={() => setSent(false)}>Send Another</Button>
                     </div>
                   ) : (
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-1.5">
                           <Label htmlFor="name">Full Name *</Label>
@@ -202,10 +264,37 @@ export default function Contact() {
         </section>
 
         {/* ── Map ── */}
-        <section className="py-0 overflow-hidden bg-secondary">
-          <div className="max-w-7xl mx-auto px-6 pb-20">
+        <section className="relative py-0 overflow-hidden bg-secondary">
+
+          {/* Left edge dots flanking the map section */}
+          <div className="absolute left-0 -bottom-80 -translate-y-1/2 hidden xl:block">
+            <DotPattern
+              columns={3}
+              rows={14}
+              gap={20}
+              dotSize={6}
+              opacity={0.8}
+              direction="diagonal-right"
+              animated={true}
+            />
+          </div>
+
+          {/* Right edge dots */}
+          <div className="absolute right-0 top-0 -translate-y-1/2 hidden xl:block">
+            <DotPattern
+              columns={3}
+              rows={14}
+              gap={20}
+              dotSize={6}
+              opacity={0.8}
+              direction="diagonal-left"
+              animated={true}
+            />
+          </div>
+
+          <div className="max-w-7xl mx-auto px-6 pb-20 relative z-10">
             <ParallaxFade>
-              <div className="text-center mb-8">
+              <div className="text-center mb-8 pt-12">
                 <Badge className="mb-3 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1">Find Us</Badge>
                 <h2 className="text-3xl font-bold text-foreground">
                   Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Location</span>

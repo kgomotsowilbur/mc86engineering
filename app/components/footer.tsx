@@ -41,7 +41,7 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-xs uppercase tracking-widest mb-5 text-primary-foreground/60">Our Services</h3>
             <ul className="space-y-2.5">
-              {["Fuel Systems - Pump & Tank", "Civil Works", "General Building & Surfacing", "Electrical Works", "HVAC & Refrigeration", "Engineering Design & Consulting"].map((s) => (
+              {["Structural Steel", "Piping Systems", "Tank Fabrication", "Civil Works", "Electrical Works", "Fuel Infrastructure"].map((s) => (
                 <li key={s}>
                   <Link href="/services" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-colors flex items-center gap-2">
                     <span className="text-accent">›</span>{s}

@@ -96,6 +96,7 @@ export default function Home() {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
+        className="overflow-x-hidden"
       >
         {/* ── Hero ── */}
         <HeroCarousel />
@@ -147,7 +148,6 @@ export default function Home() {
                 title: "Structural Steel",
                 image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779621210/MC%2786/WhatsApp_Image_2026-05-22_at_15.37.40_cvf4l2.jpg",
                 icon: Warehouse,
-                number: "04",
                 intro:
                   "Precision steel fabrication for industrial plants and heavy-duty structures.",
                 features: [
@@ -209,7 +209,6 @@ export default function Home() {
                 title: "Fuel Infrastructure",
                 image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613828/MC%2786/20221029_144933_awgqur.jpg",
                 icon: Fuel,
-                number: "05",
                 intro:
                   "Integrated fuel infrastructure systems designed for safe, efficient operations.",
                 features: [
@@ -238,10 +237,6 @@ export default function Home() {
                       <div className="w-14 h-14 rounded-2xl border border-[#79924F]/30 bg-[#79924F]/10 flex items-center justify-center backdrop-blur-md">
                         <service.icon className="h-7 w-7 text-[#A5C46D]" />
                       </div>
-
-                      <span className="text-[#79924F]/20 text-6xl font-black">
-                        {service.number}
-                      </span>
                     </div>
 
                     <div className="mb-6">

@@ -12,7 +12,7 @@ import {
   ParallaxScale,
   ParallaxScrub,
 } from "../components/parallax";
-import Image from "next/image";
+import DotPattern from "../components/ui/dot-pattern";
 
 // ─── Hero ────────────────────────────────────────────────────────────────────
 function ServicesHero() {
@@ -24,6 +24,19 @@ function ServicesHero() {
 
   return (
     <section ref={ref} className="relative min-h-[45vh] flex items-center justify-center overflow-hidden">
+      {/* Left Dot Pattern — uses hero's own scrollYProgress so the enter
+          animation plays correctly at the top of the page */}
+      <div className="absolute left-0 -bottom-1/2 -translate-y-1/2 z-10 hidden md:block">
+        <DotPattern
+          variant="hero"
+          columns={4}
+          rows={15}
+          opacity={0.9}
+          animated={true}
+          scrollProgress={scrollYProgress}
+        />
+      </div>
+
       <motion.div style={{ y: bgY }} className="absolute inset-0 w-full h-[130%] -top-[15%]">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/80" />
       </motion.div>
@@ -58,7 +71,7 @@ export default function Services() {
       <div
         style={{
           backgroundImage: `url(https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1778977970/MC%2786/95c9bdb1-5c55-49cf-a2e6-8c1790516fa6_lqe9xy.png)`,
-          backgroundAttachment: "fixed",   // native CSS parallax for the outer BG
+          backgroundAttachment: "fixed",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -69,6 +82,77 @@ export default function Services() {
 
         {/* ── Premium Services Section ── */}
         <section className="relative py-28 overflow-hidden bg-background">
+
+          {/* RIGHT SIDE — top radial cluster */}
+          <div className="absolute -right-20 -top-100 hidden xl:block">
+            <DotPattern
+              columns={10}
+              rows={20}
+              dotSize={10}
+              gap={26}
+              opacity={0.8}
+              speedY={180}
+              speedX={80}
+              rotate={12}
+              blur
+              direction="radial"
+              animated={true}
+            />
+          </div>
+
+          {/* RIGHT SIDE — mid vertical strip */}
+          <div className="absolute right-0 top-1/4 hidden xl:block">
+            <DotPattern
+              columns={4}
+              rows={14}
+              dotSize={7}
+              gap={22}
+              opacity={0.8}
+              direction="vertical"
+              animated={true}
+            />
+          </div>
+
+          {/* RIGHT SIDE — bottom diagonal */}
+          <div className="absolute -right-10 bottom-200 hidden xl:block rotate-6">
+            <DotPattern
+              columns={6}
+              rows={12}
+              dotSize={6}
+              gap={20}
+              opacity={0.8}
+              direction="diagonal-right"
+              animated={true}
+            />
+          </div>
+
+
+          {/* LEFT SIDE — mid vertical strip */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 hidden xl:block">
+            <DotPattern
+              columns={5}
+              rows={18}
+              dotSize={8}
+              gap={24}
+              opacity={0.8}
+              direction="diagonal-left"
+              animated={true}
+            />
+          </div>
+
+          {/* LEFT SIDE — bottom cluster */}
+          <div className="absolute -left-8 bottom-16 hidden xl:block rotate-12">
+            <DotPattern
+              columns={6}
+              rows={10}
+              dotSize={7}
+              gap={22}
+              opacity={0.8}
+              direction="diagonal-right"
+              animated={true}
+            />
+          </div>
+
           {/* Background Effects */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/10 blur-3xl rounded-full" />
@@ -105,10 +189,8 @@ export default function Services() {
               {[
                 {
                   title: "Structural Steel",
-                  image:
-                    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613580/MC%2786/IMG_20120929_072452_xkbr3u.jpg",
-                  description:
-                    "Precision structural steel fabrication and installation services for industrial plants, process facilities, conveyor systems, platforms, and complex steel structures.",
+                  image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613580/MC%2786/IMG_20120929_072452_xkbr3u.jpg",
+                  description: "Precision structural steel fabrication and installation services for industrial plants, process facilities, conveyor systems, platforms, and complex steel structures.",
                   features: [
                     "Plant structures & steel frameworks",
                     "Pipe racks, gantries & platforms",
@@ -119,10 +201,8 @@ export default function Services() {
                 },
                 {
                   title: "Piping Systems",
-                  image:
-                    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613805/MC%2786/IMG-20250122-WA0000_mtx9bp.jpg",
-                  description:
-                    "Specialized fabrication, spooling, installation, and commissioning of industrial piping systems designed for high-performance operations in petrochemical, mining, water, and energy sectors.",
+                  image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613805/MC%2786/IMG-20250122-WA0000_mtx9bp.jpg",
+                  description: "Specialized fabrication, spooling, installation, and commissioning of industrial piping systems designed for high-performance operations in petrochemical, mining, water, and energy sectors.",
                   features: [
                     "High pressure & high temperature piping",
                     "Steam, slurry & chemical pipe systems",
@@ -133,10 +213,8 @@ export default function Services() {
                 },
                 {
                   title: "Tank Fabrication",
-                  image:
-                    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613806/MC%2786/IMG-20201022-WA0018_ixs79m.jpg",
-                  description:
-                    "Design, fabrication, installation, and maintenance of industrial storage tanks and vessels built to SANS standards for oil, fuel, chemical, and water storage applications.",
+                  image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779613806/MC%2786/IMG-20201022-WA0018_ixs79m.jpg",
+                  description: "Design, fabrication, installation, and maintenance of industrial storage tanks and vessels built to SANS standards for oil, fuel, chemical, and water storage applications.",
                   features: [
                     "Fuel, chemical & water storage tanks",
                     "On-site tank construction & assembly",
@@ -147,10 +225,8 @@ export default function Services() {
                 },
                 {
                   title: "Civil Works",
-                  image:
-                    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779612705/MC%2786/2bc5d42f616a49118c4eb0f5afd92763_j34td0.jpg",
-                  description:
-                    "Comprehensive civil construction solutions supporting industrial infrastructure, heavy-duty foundations, concrete structures, drainage systems, and site development projects.",
+                  image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779612705/MC%2786/2bc5d42f616a49118c4eb0f5afd92763_j34td0.jpg",
+                  description: "Comprehensive civil construction solutions supporting industrial infrastructure, heavy-duty foundations, concrete structures, drainage systems, and site development projects.",
                   features: [
                     "Industrial foundations & concrete works",
                     "Site preparation & earthworks",
@@ -159,24 +235,22 @@ export default function Services() {
                     "Project execution & site management",
                   ],
                 },
-                { title: "Electrical Works", 
-                  image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614585/MC%2786/IMG_20260505_113426_gjm9zg.jpg", 
-                  description:
-                    "Reliable electrical installations, maintenance and industrial power solutions engineered for safety, efficiency and long-term performance.",
+                {
+                  title: "Electrical Works",
+                  image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614585/MC%2786/IMG_20260505_113426_gjm9zg.jpg",
+                  description: "Reliable electrical installations, maintenance and industrial power solutions engineered for safety, efficiency and long-term performance.",
                   features: [
                     "Electrical maintenance and installations",
                     "Commercial, retail and domestic electrical solutions",
                     "Compliance testing and inspection reports",
                     "Lighting, sockets and automation services",
                     "24-hour emergency electrical support",
-                  ]
+                  ],
                 },
                 {
                   title: "Fuel Infrastructure",
-                  image:
-                    "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614974/MC%2786/20210803_122519_xlje70.jpg",
-                  description:
-                    "End-to-end fuel infrastructure solutions including piping networks, storage systems, structural installations, and integrated mechanical support for fuel handling facilities.",
+                  image: "https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto,w_1400/v1779614974/MC%2786/20210803_122519_xlje70.jpg",
+                  description: "End-to-end fuel infrastructure solutions including piping networks, storage systems, structural installations, and integrated mechanical support for fuel handling facilities.",
                   features: [
                     "Fuel transfer piping systems",
                     "Bulk fuel storage solutions",
@@ -193,29 +267,32 @@ export default function Services() {
                     }`}
                   >
                     {/* Image Side */}
-                    <div
-                      className={`relative min-h-[420px] overflow-hidden ${
-                        index % 2 !== 0 ? "lg:col-start-2" : ""
-                      }`}
-                    >
-                      <ParallaxLayer
-                        speed={0.12}
-                        className="absolute inset-0"
-                        style={{ height: '100%', width: '100%' }}
-                      >
+                    <div className={`relative min-h-[420px] overflow-hidden ${index % 2 !== 0 ? "lg:col-start-2" : ""}`}>
+                      <ParallaxLayer speed={0.12} className="absolute inset-0" style={{ height: "100%", width: "100%" }}>
                         <img
                           src={service.image}
                           alt={service.title}
                           className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                         />
                       </ParallaxLayer>
-
-                      {/* Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
                     </div>
 
                     {/* Content Side */}
                     <div className="relative p-10 lg:p-14 flex flex-col justify-center">
+                      {/* Per-card corner dots — scrubbing */}
+                      <div className="absolute top-10 right-10 z-20">
+                        <DotPattern
+                          columns={4}
+                          rows={8}
+                          dotSize={5}
+                          gap={14}
+                          opacity={0.1}
+                          animated={true}
+                          direction="vertical"
+                        />
+                      </div>
+
                       <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 blur-3xl rounded-full" />
 
                       <h3 className="text-3xl md:text-4xl font-black text-foreground mb-5 relative z-10">
@@ -235,10 +312,7 @@ export default function Services() {
                             <div className="mt-1">
                               <CheckCircle className="h-5 w-5 text-primary" />
                             </div>
-
-                            <span className="text-sm leading-relaxed text-foreground">
-                              {feature}
-                            </span>
+                            <span className="text-sm leading-relaxed text-foreground">{feature}</span>
                           </div>
                         ))}
                       </div>
@@ -268,7 +342,11 @@ export default function Services() {
                 { title: "Proven Track Record", desc: "Over 5 years serving industry leaders including Sasol, Shell, BP, Sibanye, and many other major corporations." },
               ].map((item, index) => (
                 <ParallaxFloat key={item.title} speed={0.06 + index * 0.04}>
-                  <div className="group bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 h-full">
+                  <div className="group relative bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 h-full">
+                    {/* Corner dots — static micro-detail, fine to leave as-is */}
+                    <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-60 transition-opacity duration-500">
+                      <DotPattern columns={3} rows={3} gap={10} dotSize={4} animated={false} />
+                    </div>
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                       <CheckCircle className="h-5 w-5 text-primary" />
                     </div>

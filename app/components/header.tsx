@@ -48,7 +48,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="relative z-50">
           <Image
-            src="https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto/v1779027428/MC%2786/logo_wstzeb.svg"
+            src="https://res.cloudinary.com/dk7dsm0lc/image/upload/f_auto,q_auto/v1779964326/MC%2786/Untitled_design_f5awe5.svg"
             alt="MC'86 logo"
             width={240}
             height={100}

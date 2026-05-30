@@ -12,12 +12,12 @@ const clientLogos = [
   { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/4821f2ee7_mc86group_com_pump-145x75_61b6d4ef.png", alt: "Pumpquip" },
   { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/c08743899_mc86group_com_masinga-145x75_0f4c96d7.png", alt: "Masingi" },
   { src: "https://media.base44.com/images/public/69ff141f3dc8066a88d6ff99/0113b0b41_mc86group_com_redb-145x75_1ff3e6ac.png", alt: "Redbrick" },
-  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525129/images_crrldo.png", alt: "CBRE Excellerate"},
-  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525128/samancor-logo-png_seeklogo-171246_jdrewf.png", alt: "samancor"},
-  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525128/pragma_logo_rlxtbj.jpg", alt: "pragma"},
-  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525129/SERITI-Logo-RGB_jmrncy.png", alt: "seriti"},
-  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525129/Heineken_sfljjd.png", alt: "heineken"},
-  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525130/Department_of_Water_and_Sanitation_logo.svg_vmwfou.png", alt: "water and sanitation"}
+  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525129/MC%2786/images_crrldo.png", alt: "CBRE Excellerate"},
+  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525128/MC%2786/samancor-logo-png_seeklogo-171246_jdrewf.png", alt: "samancor"},
+  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525128/MC%2786/pragma_logo_rlxtbj.jpg", alt: "pragma"},
+  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525129/MC%2786/SERITI-Logo-RGB_jmrncy.png", alt: "seriti"},
+  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525129/MC%2786/Heineken_sfljjd.png", alt: "heineken"},
+  { src: "https://res.cloudinary.com/dk7dsm0lc/image/upload/v1779525130/MC%2786/Department_of_Water_and_Sanitation_logo.svg_vmwfou.png", alt: "water and sanitation"}
 ];
 
 export default function ClientsMarquee() {
