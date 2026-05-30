@@ -84,7 +84,7 @@ export default function Services() {
         <section className="relative py-28 overflow-hidden bg-background">
 
           {/* RIGHT SIDE — top radial cluster */}
-          <div className="absolute -right-20 -top-100 hidden xl:block">
+          <div className="absolute -right-40 -top-140 hidden xl:block">
             <DotPattern
               columns={10}
               rows={20}
